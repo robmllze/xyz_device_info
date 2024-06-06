@@ -15,11 +15,11 @@
 // ignore_for_file: unnecessary_null_comparison
 // ignore_for_file: unnecessary_this
 
-part of 'js_screen.dart';
+part of 'model_js_screen.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class JsScreen extends Model {
+class ModelJsScreen extends Model {
   //
   //
   //
@@ -32,7 +32,7 @@ class JsScreen extends Model {
   static const K_PIXEL_DEPTH = 'pixel_depth';
   static const K_WIDTH = 'width';
 
-  static const CLASS = 'JsScreen';
+  static const CLASS = 'ModelJsScreen';
 
   @override
   String get $class => CLASS;
@@ -49,13 +49,13 @@ class JsScreen extends Model {
   //
   //
 
-  JsScreen.empty();
+  ModelJsScreen.empty();
 
   //
   //
   //
 
-  factory JsScreen({
+  factory ModelJsScreen({
     int? availHeight,
     int? availWidth,
     int? colorDepth,
@@ -64,7 +64,7 @@ class JsScreen extends Model {
     int? pixelDepth,
     int? width,
   }) {
-    return JsScreen.b(
+    return ModelJsScreen.b(
       availHeight: availHeight,
       availWidth: availWidth,
       colorDepth: colorDepth,
@@ -79,7 +79,7 @@ class JsScreen extends Model {
   //
   //
 
-  JsScreen.b({
+  ModelJsScreen.b({
     this.availHeight,
     this.availWidth,
     this.colorDepth,
@@ -93,18 +93,18 @@ class JsScreen extends Model {
   //
   //
 
-  factory JsScreen.from(
+  factory ModelJsScreen.from(
     Model? other,
   ) {
     try {
       return fromOrNull(other)!;
     } catch (e) {
-      assert(false, 'JsScreen.from: $e');
+      assert(false, 'ModelJsScreen.from: $e');
       rethrow;
     }
   }
 
-  static JsScreen? fromOrNull(
+  static ModelJsScreen? fromOrNull(
     Model? other,
   ) {
     return fromJsonOrNull(other?.toJson())!;
@@ -114,19 +114,19 @@ class JsScreen extends Model {
   //
   //
 
-  factory JsScreen.of(
-    JsScreen other,
+  factory ModelJsScreen.of(
+    ModelJsScreen other,
   ) {
     try {
       return ofOrNull(other)!;
     } catch (e) {
-      assert(false, 'JsScreen.of: $e');
+      assert(false, 'ModelJsScreen.of: $e');
       rethrow;
     }
   }
 
-  static JsScreen? ofOrNull(
-    JsScreen? other,
+  static ModelJsScreen? ofOrNull(
+    ModelJsScreen? other,
   ) {
     return fromJsonOrNull(other?.toJson());
   }
@@ -135,26 +135,26 @@ class JsScreen extends Model {
   //
   //
 
-  factory JsScreen.fromJsonString(
+  factory ModelJsScreen.fromJsonString(
     String source,
   ) {
     try {
       return fromJsonStringOrNull(source)!;
     } catch (e) {
-      assert(false, 'JsScreen.fromJsonString: $e');
+      assert(false, 'ModelJsScreen.fromJsonString: $e');
       rethrow;
     }
   }
 
-  static JsScreen? fromJsonStringOrNull(
+  static ModelJsScreen? fromJsonStringOrNull(
     String? source,
   ) {
     try {
       if (source!.isNotEmpty) {
         final decoded = jsonDecode(source);
-        return JsScreen.fromJson(decoded);
+        return ModelJsScreen.fromJson(decoded);
       } else {
-        return JsScreen.empty();
+        return ModelJsScreen.empty();
       }
     } catch (_) {
       return null;
@@ -165,22 +165,22 @@ class JsScreen extends Model {
   //
   //
 
-  factory JsScreen.fromJson(
+  factory ModelJsScreen.fromJson(
     Map<String, dynamic>? otherData,
   ) {
     try {
       return fromJsonOrNull(otherData)!;
     } catch (e) {
-      assert(false, 'JsScreen.fromJson: $e');
+      assert(false, 'ModelJsScreen.fromJson: $e');
       rethrow;
     }
   }
 
-  static JsScreen? fromJsonOrNull(
+  static ModelJsScreen? fromJsonOrNull(
     Map<String, dynamic>? otherData,
   ) {
     try {
-      return JsScreen.empty()
+      return ModelJsScreen.empty()
         ..$availHeight = otherData?[K_AVAIL_HEIGHT]
         ..$availWidth = otherData?[K_AVAIL_WIDTH]
         ..$colorDepth = otherData?[K_COLOR_DEPTH]
@@ -197,25 +197,25 @@ class JsScreen extends Model {
   //
   //
 
-  factory JsScreen.fromUri(
+  factory ModelJsScreen.fromUri(
     Uri? uri,
   ) {
     try {
       return fromUriOrNull(uri)!;
     } catch (e) {
-      assert(false, 'JsScreen.fromUri: $e');
+      assert(false, 'ModelJsScreen.fromUri: $e');
       rethrow;
     }
   }
 
-  static JsScreen? fromUriOrNull(
+  static ModelJsScreen? fromUriOrNull(
     Uri? uri,
   ) {
     try {
       if (uri != null && uri.path == CLASS) {
-        return JsScreen.fromJson(uri.queryParameters);
+        return ModelJsScreen.fromJson(uri.queryParameters);
       } else {
-        return JsScreen.empty();
+        return ModelJsScreen.empty();
       }
     } catch (_) {
       return null;
@@ -243,7 +243,7 @@ class JsScreen extends Model {
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
-      assert(false, 'JsScreen.toJson: $e');
+      assert(false, 'ModelJsScreen.toJson: $e');
       rethrow;
     }
   }
@@ -254,7 +254,7 @@ class JsScreen extends Model {
 
   @override
   T empty<T extends Model>() {
-    return JsScreen.b() as T;
+    return ModelJsScreen.b() as T;
   }
 
   //
@@ -263,7 +263,7 @@ class JsScreen extends Model {
 
   @override
   T copy<T extends Model>() {
-    return (JsScreen.b()..updateWith(this)) as T;
+    return (ModelJsScreen.b()..updateWith(this)) as T;
   }
 
   //
@@ -275,7 +275,7 @@ class JsScreen extends Model {
     Map<String, dynamic>? otherData,
   ) {
     if (otherData != null && otherData.isNotEmpty) {
-      final other = JsScreen.fromJson(otherData);
+      final other = ModelJsScreen.fromJson(otherData);
       if (other.availHeight != null) {
         this.availHeight = other.availHeight!;
       }

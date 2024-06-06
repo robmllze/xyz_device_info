@@ -8,45 +8,17 @@
 //.title~
 
 import '/_common.dart';
-part '_basic_device_info.g.dart';
+
+part '_model_js_navigator.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
+typedef JsNavigator = ModelJsNavigator;
+
 @GenerateModel(
-  shouldInherit: true,
   fields: {
-    ('operating_system?', String),
     ('user_agent?', String),
   },
 )
 // ignore: unused_element
-abstract class _BasicDeviceInfo extends ThisModel<BasicDeviceInfo> {
-  //
-  //
-  //
-
-  bool userAgentIsSafari() {
-    final source = this.model.userAgent?.toLowerCase() ?? '';
-    return source.contains('safari');
-  }
-
-  bool userAgentIsChrome() {
-    final source = this.model.userAgent?.toLowerCase() ?? '';
-    return source.contains('chrome');
-  }
-
-  bool userAgentIsMacOS() {
-    final source = this.model.userAgent?.toLowerCase() ?? '';
-    return source.contains('mac os') || source.contains('macos');
-  }
-
-  bool userAgentIsWindows() {
-    final source = this.model.userAgent?.toLowerCase() ?? '';
-    return source.contains('windows');
-  }
-
-  bool userAgentIsAndroid() {
-    final source = this.model.userAgent?.toLowerCase() ?? '';
-    return source.contains('android');
-  }
-}
+abstract class _ModelJsNavigator {}

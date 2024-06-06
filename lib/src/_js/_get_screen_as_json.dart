@@ -10,7 +10,7 @@
 
 import 'dart:js_interop';
 
-import '../models/js_screen/js_screen.dart';
+import '../models/model_js_screen/model_js_screen.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 

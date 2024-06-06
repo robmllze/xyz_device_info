@@ -15,18 +15,18 @@
 // ignore_for_file: unnecessary_null_comparison
 // ignore_for_file: unnecessary_this
 
-part of 'js_navigator.dart';
+part of 'model_js_navigator.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class JsNavigator extends Model {
+class ModelJsNavigator extends Model {
   //
   //
   //
 
   static const K_USER_AGENT = 'user_agent';
 
-  static const CLASS = 'JsNavigator';
+  static const CLASS = 'ModelJsNavigator';
 
   @override
   String get $class => CLASS;
@@ -37,16 +37,16 @@ class JsNavigator extends Model {
   //
   //
 
-  JsNavigator.empty();
+  ModelJsNavigator.empty();
 
   //
   //
   //
 
-  factory JsNavigator({
+  factory ModelJsNavigator({
     String? userAgent,
   }) {
-    return JsNavigator.b(
+    return ModelJsNavigator.b(
       userAgent: userAgent,
     );
   }
@@ -55,7 +55,7 @@ class JsNavigator extends Model {
   //
   //
 
-  JsNavigator.b({
+  ModelJsNavigator.b({
     this.userAgent,
   }) {}
 
@@ -63,18 +63,18 @@ class JsNavigator extends Model {
   //
   //
 
-  factory JsNavigator.from(
+  factory ModelJsNavigator.from(
     Model? other,
   ) {
     try {
       return fromOrNull(other)!;
     } catch (e) {
-      assert(false, 'JsNavigator.from: $e');
+      assert(false, 'ModelJsNavigator.from: $e');
       rethrow;
     }
   }
 
-  static JsNavigator? fromOrNull(
+  static ModelJsNavigator? fromOrNull(
     Model? other,
   ) {
     return fromJsonOrNull(other?.toJson())!;
@@ -84,19 +84,19 @@ class JsNavigator extends Model {
   //
   //
 
-  factory JsNavigator.of(
-    JsNavigator other,
+  factory ModelJsNavigator.of(
+    ModelJsNavigator other,
   ) {
     try {
       return ofOrNull(other)!;
     } catch (e) {
-      assert(false, 'JsNavigator.of: $e');
+      assert(false, 'ModelJsNavigator.of: $e');
       rethrow;
     }
   }
 
-  static JsNavigator? ofOrNull(
-    JsNavigator? other,
+  static ModelJsNavigator? ofOrNull(
+    ModelJsNavigator? other,
   ) {
     return fromJsonOrNull(other?.toJson());
   }
@@ -105,26 +105,26 @@ class JsNavigator extends Model {
   //
   //
 
-  factory JsNavigator.fromJsonString(
+  factory ModelJsNavigator.fromJsonString(
     String source,
   ) {
     try {
       return fromJsonStringOrNull(source)!;
     } catch (e) {
-      assert(false, 'JsNavigator.fromJsonString: $e');
+      assert(false, 'ModelJsNavigator.fromJsonString: $e');
       rethrow;
     }
   }
 
-  static JsNavigator? fromJsonStringOrNull(
+  static ModelJsNavigator? fromJsonStringOrNull(
     String? source,
   ) {
     try {
       if (source!.isNotEmpty) {
         final decoded = jsonDecode(source);
-        return JsNavigator.fromJson(decoded);
+        return ModelJsNavigator.fromJson(decoded);
       } else {
-        return JsNavigator.empty();
+        return ModelJsNavigator.empty();
       }
     } catch (_) {
       return null;
@@ -135,22 +135,22 @@ class JsNavigator extends Model {
   //
   //
 
-  factory JsNavigator.fromJson(
+  factory ModelJsNavigator.fromJson(
     Map<String, dynamic>? otherData,
   ) {
     try {
       return fromJsonOrNull(otherData)!;
     } catch (e) {
-      assert(false, 'JsNavigator.fromJson: $e');
+      assert(false, 'ModelJsNavigator.fromJson: $e');
       rethrow;
     }
   }
 
-  static JsNavigator? fromJsonOrNull(
+  static ModelJsNavigator? fromJsonOrNull(
     Map<String, dynamic>? otherData,
   ) {
     try {
-      return JsNavigator.empty()..$userAgent = otherData?[K_USER_AGENT];
+      return ModelJsNavigator.empty()..$userAgent = otherData?[K_USER_AGENT];
     } catch (e) {
       return null;
     }
@@ -160,25 +160,25 @@ class JsNavigator extends Model {
   //
   //
 
-  factory JsNavigator.fromUri(
+  factory ModelJsNavigator.fromUri(
     Uri? uri,
   ) {
     try {
       return fromUriOrNull(uri)!;
     } catch (e) {
-      assert(false, 'JsNavigator.fromUri: $e');
+      assert(false, 'ModelJsNavigator.fromUri: $e');
       rethrow;
     }
   }
 
-  static JsNavigator? fromUriOrNull(
+  static ModelJsNavigator? fromUriOrNull(
     Uri? uri,
   ) {
     try {
       if (uri != null && uri.path == CLASS) {
-        return JsNavigator.fromJson(uri.queryParameters);
+        return ModelJsNavigator.fromJson(uri.queryParameters);
       } else {
-        return JsNavigator.empty();
+        return ModelJsNavigator.empty();
       }
     } catch (_) {
       return null;
@@ -200,7 +200,7 @@ class JsNavigator extends Model {
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
-      assert(false, 'JsNavigator.toJson: $e');
+      assert(false, 'ModelJsNavigator.toJson: $e');
       rethrow;
     }
   }
@@ -211,7 +211,7 @@ class JsNavigator extends Model {
 
   @override
   T empty<T extends Model>() {
-    return JsNavigator.b() as T;
+    return ModelJsNavigator.b() as T;
   }
 
   //
@@ -220,7 +220,7 @@ class JsNavigator extends Model {
 
   @override
   T copy<T extends Model>() {
-    return (JsNavigator.b()..updateWith(this)) as T;
+    return (ModelJsNavigator.b()..updateWith(this)) as T;
   }
 
   //
@@ -232,7 +232,7 @@ class JsNavigator extends Model {
     Map<String, dynamic>? otherData,
   ) {
     if (otherData != null && otherData.isNotEmpty) {
-      final other = JsNavigator.fromJson(otherData);
+      final other = ModelJsNavigator.fromJson(otherData);
       if (other.userAgent != null) {
         this.userAgent = other.userAgent!;
       }

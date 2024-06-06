@@ -15,11 +15,11 @@
 // ignore_for_file: unnecessary_null_comparison
 // ignore_for_file: unnecessary_this
 
-part of 'basic_device_info.dart';
+part of 'model_basic_device_info.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class BasicDeviceInfo extends _BasicDeviceInfo {
+class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   //
   //
   //
@@ -27,7 +27,7 @@ class BasicDeviceInfo extends _BasicDeviceInfo {
   static const K_OPERATING_SYSTEM = 'operating_system';
   static const K_USER_AGENT = 'user_agent';
 
-  static const CLASS = 'BasicDeviceInfo';
+  static const CLASS = 'ModelBasicDeviceInfo';
 
   @override
   String get $class => CLASS;
@@ -39,17 +39,17 @@ class BasicDeviceInfo extends _BasicDeviceInfo {
   //
   //
 
-  BasicDeviceInfo.empty();
+  ModelBasicDeviceInfo.empty();
 
   //
   //
   //
 
-  factory BasicDeviceInfo({
+  factory ModelBasicDeviceInfo({
     String? operatingSystem,
     String? userAgent,
   }) {
-    return BasicDeviceInfo.b(
+    return ModelBasicDeviceInfo.b(
       operatingSystem: operatingSystem,
       userAgent: userAgent,
     );
@@ -59,7 +59,7 @@ class BasicDeviceInfo extends _BasicDeviceInfo {
   //
   //
 
-  BasicDeviceInfo.b({
+  ModelBasicDeviceInfo.b({
     this.operatingSystem,
     this.userAgent,
   }) {}
@@ -68,18 +68,18 @@ class BasicDeviceInfo extends _BasicDeviceInfo {
   //
   //
 
-  factory BasicDeviceInfo.from(
+  factory ModelBasicDeviceInfo.from(
     Model? other,
   ) {
     try {
       return fromOrNull(other)!;
     } catch (e) {
-      assert(false, 'BasicDeviceInfo.from: $e');
+      assert(false, 'ModelBasicDeviceInfo.from: $e');
       rethrow;
     }
   }
 
-  static BasicDeviceInfo? fromOrNull(
+  static ModelBasicDeviceInfo? fromOrNull(
     Model? other,
   ) {
     return fromJsonOrNull(other?.toJson())!;
@@ -89,19 +89,19 @@ class BasicDeviceInfo extends _BasicDeviceInfo {
   //
   //
 
-  factory BasicDeviceInfo.of(
-    BasicDeviceInfo other,
+  factory ModelBasicDeviceInfo.of(
+    ModelBasicDeviceInfo other,
   ) {
     try {
       return ofOrNull(other)!;
     } catch (e) {
-      assert(false, 'BasicDeviceInfo.of: $e');
+      assert(false, 'ModelBasicDeviceInfo.of: $e');
       rethrow;
     }
   }
 
-  static BasicDeviceInfo? ofOrNull(
-    BasicDeviceInfo? other,
+  static ModelBasicDeviceInfo? ofOrNull(
+    ModelBasicDeviceInfo? other,
   ) {
     return fromJsonOrNull(other?.toJson());
   }
@@ -110,26 +110,26 @@ class BasicDeviceInfo extends _BasicDeviceInfo {
   //
   //
 
-  factory BasicDeviceInfo.fromJsonString(
+  factory ModelBasicDeviceInfo.fromJsonString(
     String source,
   ) {
     try {
       return fromJsonStringOrNull(source)!;
     } catch (e) {
-      assert(false, 'BasicDeviceInfo.fromJsonString: $e');
+      assert(false, 'ModelBasicDeviceInfo.fromJsonString: $e');
       rethrow;
     }
   }
 
-  static BasicDeviceInfo? fromJsonStringOrNull(
+  static ModelBasicDeviceInfo? fromJsonStringOrNull(
     String? source,
   ) {
     try {
       if (source!.isNotEmpty) {
         final decoded = jsonDecode(source);
-        return BasicDeviceInfo.fromJson(decoded);
+        return ModelBasicDeviceInfo.fromJson(decoded);
       } else {
-        return BasicDeviceInfo.empty();
+        return ModelBasicDeviceInfo.empty();
       }
     } catch (_) {
       return null;
@@ -140,22 +140,22 @@ class BasicDeviceInfo extends _BasicDeviceInfo {
   //
   //
 
-  factory BasicDeviceInfo.fromJson(
+  factory ModelBasicDeviceInfo.fromJson(
     Map<String, dynamic>? otherData,
   ) {
     try {
       return fromJsonOrNull(otherData)!;
     } catch (e) {
-      assert(false, 'BasicDeviceInfo.fromJson: $e');
+      assert(false, 'ModelBasicDeviceInfo.fromJson: $e');
       rethrow;
     }
   }
 
-  static BasicDeviceInfo? fromJsonOrNull(
+  static ModelBasicDeviceInfo? fromJsonOrNull(
     Map<String, dynamic>? otherData,
   ) {
     try {
-      return BasicDeviceInfo.empty()
+      return ModelBasicDeviceInfo.empty()
         ..$operatingSystem = otherData?[K_OPERATING_SYSTEM]
         ..$userAgent = otherData?[K_USER_AGENT];
     } catch (e) {
@@ -167,25 +167,25 @@ class BasicDeviceInfo extends _BasicDeviceInfo {
   //
   //
 
-  factory BasicDeviceInfo.fromUri(
+  factory ModelBasicDeviceInfo.fromUri(
     Uri? uri,
   ) {
     try {
       return fromUriOrNull(uri)!;
     } catch (e) {
-      assert(false, 'BasicDeviceInfo.fromUri: $e');
+      assert(false, 'ModelBasicDeviceInfo.fromUri: $e');
       rethrow;
     }
   }
 
-  static BasicDeviceInfo? fromUriOrNull(
+  static ModelBasicDeviceInfo? fromUriOrNull(
     Uri? uri,
   ) {
     try {
       if (uri != null && uri.path == CLASS) {
-        return BasicDeviceInfo.fromJson(uri.queryParameters);
+        return ModelBasicDeviceInfo.fromJson(uri.queryParameters);
       } else {
-        return BasicDeviceInfo.empty();
+        return ModelBasicDeviceInfo.empty();
       }
     } catch (_) {
       return null;
@@ -208,7 +208,7 @@ class BasicDeviceInfo extends _BasicDeviceInfo {
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
-      assert(false, 'BasicDeviceInfo.toJson: $e');
+      assert(false, 'ModelBasicDeviceInfo.toJson: $e');
       rethrow;
     }
   }
@@ -219,7 +219,7 @@ class BasicDeviceInfo extends _BasicDeviceInfo {
 
   @override
   T empty<T extends Model>() {
-    return BasicDeviceInfo.b() as T;
+    return ModelBasicDeviceInfo.b() as T;
   }
 
   //
@@ -228,7 +228,7 @@ class BasicDeviceInfo extends _BasicDeviceInfo {
 
   @override
   T copy<T extends Model>() {
-    return (BasicDeviceInfo.b()..updateWith(this)) as T;
+    return (ModelBasicDeviceInfo.b()..updateWith(this)) as T;
   }
 
   //
@@ -240,7 +240,7 @@ class BasicDeviceInfo extends _BasicDeviceInfo {
     Map<String, dynamic>? otherData,
   ) {
     if (otherData != null && otherData.isNotEmpty) {
-      final other = BasicDeviceInfo.fromJson(otherData);
+      final other = ModelBasicDeviceInfo.fromJson(otherData);
       if (other.operatingSystem != null) {
         this.operatingSystem = other.operatingSystem!;
       }

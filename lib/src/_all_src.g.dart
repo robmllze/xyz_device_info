@@ -8,6 +8,6 @@
 //.title~
 
 export 'get_basic_device_info/get_basic_device_info.dart';
-export 'models/basic_device_info/basic_device_info.dart';
-export 'models/js_navigator/js_navigator.dart';
-export 'models/js_screen/js_screen.dart';
+export 'models/model_basic_device_info/model_basic_device_info.dart';
+export 'models/model_js_navigator/model_js_navigator.dart';
+export 'models/model_js_screen/model_js_screen.dart';

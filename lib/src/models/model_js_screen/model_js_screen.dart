@@ -9,9 +9,11 @@
 
 import '/_common.dart';
 
-part '_js_screen.g.dart';
+part '_model_js_screen.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+typedef JsScreen = ModelJsScreen;
 
 @GenerateModel(
   fields: {
@@ -25,4 +27,4 @@ part '_js_screen.g.dart';
   },
 )
 // ignore: unused_element
-abstract class _JsScreen {}
+abstract class _ModelJsScreen {}
