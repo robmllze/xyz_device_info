@@ -11,11 +11,11 @@
 import { getNavigatorAsJson } from './src/get_navigator_as_json.js';
 import { getPositionAsJson } from './src/get_position_as_json.js';
 import { getScreenAsJson } from './src/get_screen_as_json.js';
-import { isPWAInstalled } from './src/is_pwa_installed.js';
+import { isPwaInstalled } from './src/is_pwa_installed.js';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 window.getNavigatorAsJson = getNavigatorAsJson;
 window.getPositionAsJson = getPositionAsJson;
 window.getScreenAsJson = getScreenAsJson;
-window.isPWAInstalled = isPWAInstalled;
+window.isPwaInstalled = isPwaInstalled;
