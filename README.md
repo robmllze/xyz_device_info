@@ -2,15 +2,31 @@
 
 ## Getting Started
 
-### Setup
+## Non-Web Installation
 
-1. Copy the folder `@xyz_get_device_info` to your project's `web` folder.
+1. Add this to your `pubspec.yaml` file:
 
-2. Copy the following code and paste it in the head section of your HTML file.
+```yaml
+dependencies:
+  xyz_get_device_info: any # or the latest version
+```
+
+## Web Installation
+
+1. Add this to your `pubspec.yaml` file:
+
+```yaml
+dependencies:
+  xyz_get_device_info: any # or the latest version
+```
+
+2. Copy the folder `@xyz_get_device_info` to your project's `web` folder.
+
+3. Copy the following code and paste it in the head section of your HTML file.
 
 ```html
 <script
   type="module"
-  src="@xyz_get_device_info/lib/xyz_get_device_info.js"
+  src="@xyz_get_device_info/xyz_get_device_info.js"
 ></script>
 ```
