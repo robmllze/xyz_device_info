@@ -17,5 +17,6 @@ BasicDeviceInfo getBasicDeviceInfoNonWeb() {
   return BasicDeviceInfo(
     operatingSystem: Platform.operatingSystem,
     userAgent: null,
+    isInstalled: true,
   );
 }

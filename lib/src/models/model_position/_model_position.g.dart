@@ -15,11 +15,11 @@
 // ignore_for_file: unnecessary_null_comparison
 // ignore_for_file: unnecessary_this
 
-part of 'model_location.dart';
+part of 'model_position.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class ModelLocation extends _ModelLocation {
+class ModelPosition extends _ModelPosition {
   //
   //
   //
@@ -28,7 +28,7 @@ class ModelLocation extends _ModelLocation {
   static const K_LATITUDE = 'latitude';
   static const K_LONGITUDE = 'longitude';
 
-  static const CLASS = 'ModelLocation';
+  static const CLASS = 'ModelPosition';
 
   @override
   String get $class => CLASS;
@@ -41,18 +41,18 @@ class ModelLocation extends _ModelLocation {
   //
   //
 
-  ModelLocation.empty();
+  ModelPosition.empty();
 
   //
   //
   //
 
-  factory ModelLocation({
+  factory ModelPosition({
     double? altitude,
     double? latitude,
     double? longitude,
   }) {
-    return ModelLocation.b(
+    return ModelPosition.b(
       altitude: altitude,
       latitude: latitude,
       longitude: longitude,
@@ -63,7 +63,7 @@ class ModelLocation extends _ModelLocation {
   //
   //
 
-  ModelLocation.b({
+  ModelPosition.b({
     this.altitude,
     this.latitude,
     this.longitude,
@@ -73,18 +73,18 @@ class ModelLocation extends _ModelLocation {
   //
   //
 
-  factory ModelLocation.from(
+  factory ModelPosition.from(
     Model? other,
   ) {
     try {
       return fromOrNull(other)!;
     } catch (e) {
-      assert(false, 'ModelLocation.from: $e');
+      assert(false, 'ModelPosition.from: $e');
       rethrow;
     }
   }
 
-  static ModelLocation? fromOrNull(
+  static ModelPosition? fromOrNull(
     Model? other,
   ) {
     return fromJsonOrNull(other?.toJson())!;
@@ -94,19 +94,19 @@ class ModelLocation extends _ModelLocation {
   //
   //
 
-  factory ModelLocation.of(
-    ModelLocation other,
+  factory ModelPosition.of(
+    ModelPosition other,
   ) {
     try {
       return ofOrNull(other)!;
     } catch (e) {
-      assert(false, 'ModelLocation.of: $e');
+      assert(false, 'ModelPosition.of: $e');
       rethrow;
     }
   }
 
-  static ModelLocation? ofOrNull(
-    ModelLocation? other,
+  static ModelPosition? ofOrNull(
+    ModelPosition? other,
   ) {
     return fromJsonOrNull(other?.toJson());
   }
@@ -115,26 +115,26 @@ class ModelLocation extends _ModelLocation {
   //
   //
 
-  factory ModelLocation.fromJsonString(
+  factory ModelPosition.fromJsonString(
     String source,
   ) {
     try {
       return fromJsonStringOrNull(source)!;
     } catch (e) {
-      assert(false, 'ModelLocation.fromJsonString: $e');
+      assert(false, 'ModelPosition.fromJsonString: $e');
       rethrow;
     }
   }
 
-  static ModelLocation? fromJsonStringOrNull(
+  static ModelPosition? fromJsonStringOrNull(
     String? source,
   ) {
     try {
       if (source!.isNotEmpty) {
         final decoded = jsonDecode(source);
-        return ModelLocation.fromJson(decoded);
+        return ModelPosition.fromJson(decoded);
       } else {
-        return ModelLocation.empty();
+        return ModelPosition.empty();
       }
     } catch (_) {
       return null;
@@ -145,22 +145,22 @@ class ModelLocation extends _ModelLocation {
   //
   //
 
-  factory ModelLocation.fromJson(
+  factory ModelPosition.fromJson(
     Map<String, dynamic>? otherData,
   ) {
     try {
       return fromJsonOrNull(otherData)!;
     } catch (e) {
-      assert(false, 'ModelLocation.fromJson: $e');
+      assert(false, 'ModelPosition.fromJson: $e');
       rethrow;
     }
   }
 
-  static ModelLocation? fromJsonOrNull(
+  static ModelPosition? fromJsonOrNull(
     Map<String, dynamic>? otherData,
   ) {
     try {
-      return ModelLocation.empty()
+      return ModelPosition.empty()
         ..$altitude = otherData?[K_ALTITUDE]
         ..$latitude = otherData?[K_LATITUDE]
         ..$longitude = otherData?[K_LONGITUDE];
@@ -173,25 +173,25 @@ class ModelLocation extends _ModelLocation {
   //
   //
 
-  factory ModelLocation.fromUri(
+  factory ModelPosition.fromUri(
     Uri? uri,
   ) {
     try {
       return fromUriOrNull(uri)!;
     } catch (e) {
-      assert(false, 'ModelLocation.fromUri: $e');
+      assert(false, 'ModelPosition.fromUri: $e');
       rethrow;
     }
   }
 
-  static ModelLocation? fromUriOrNull(
+  static ModelPosition? fromUriOrNull(
     Uri? uri,
   ) {
     try {
       if (uri != null && uri.path == CLASS) {
-        return ModelLocation.fromJson(uri.queryParameters);
+        return ModelPosition.fromJson(uri.queryParameters);
       } else {
-        return ModelLocation.empty();
+        return ModelPosition.empty();
       }
     } catch (_) {
       return null;
@@ -215,7 +215,7 @@ class ModelLocation extends _ModelLocation {
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
-      assert(false, 'ModelLocation.toJson: $e');
+      assert(false, 'ModelPosition.toJson: $e');
       rethrow;
     }
   }
@@ -226,7 +226,7 @@ class ModelLocation extends _ModelLocation {
 
   @override
   T empty<T extends Model>() {
-    return ModelLocation.b() as T;
+    return ModelPosition.b() as T;
   }
 
   //
@@ -235,7 +235,7 @@ class ModelLocation extends _ModelLocation {
 
   @override
   T copy<T extends Model>() {
-    return (ModelLocation.b()..updateWith(this)) as T;
+    return (ModelPosition.b()..updateWith(this)) as T;
   }
 
   //
@@ -247,7 +247,7 @@ class ModelLocation extends _ModelLocation {
     Map<String, dynamic>? otherData,
   ) {
     if (otherData != null && otherData.isNotEmpty) {
-      final other = ModelLocation.fromJson(otherData);
+      final other = ModelPosition.fromJson(otherData);
       if (other.altitude != null) {
         this.altitude = other.altitude!;
       }

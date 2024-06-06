@@ -8,16 +8,23 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import '/xyz_device_info.dart';
-import '../_js/_get_navigator_as_json.dart';
-import '../_js/_is_pwa_installed.dart';
-
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
-BasicDeviceInfo getBasicDeviceInfoWeb() {
-  return BasicDeviceInfo(
-    operatingSystem: null,
-    userAgent: getNavigator().userAgent,
-    isInstalled: isPwaInstalled(),
-  );
+export function getPositionAsJson(callback) {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        const locationData = {
+          'latitude': position.coords.latitude,
+          'longitude': position.coords.longitude,
+          'altitude': position.coords.altitude,
+        };
+        callback(JSON.stringify(locationData));
+      },
+      function(_) {
+        callback(JSON.stringify({}));
+      }
+    );
+  } else {
+    callback(JSON.stringify({}));
+  }
 }
+

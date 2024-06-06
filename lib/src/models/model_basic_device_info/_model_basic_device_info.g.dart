@@ -24,6 +24,7 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   //
   //
 
+  static const K_IS_INSTALLED = 'is_installed';
   static const K_OPERATING_SYSTEM = 'operating_system';
   static const K_USER_AGENT = 'user_agent';
 
@@ -32,6 +33,7 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   @override
   String get $class => CLASS;
 
+  bool? isInstalled;
   String? operatingSystem;
   String? userAgent;
 
@@ -46,10 +48,12 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   //
 
   factory ModelBasicDeviceInfo({
+    bool? isInstalled,
     String? operatingSystem,
     String? userAgent,
   }) {
     return ModelBasicDeviceInfo.b(
+      isInstalled: isInstalled,
       operatingSystem: operatingSystem,
       userAgent: userAgent,
     );
@@ -60,6 +64,7 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   //
 
   ModelBasicDeviceInfo.b({
+    this.isInstalled,
     this.operatingSystem,
     this.userAgent,
   }) {}
@@ -156,6 +161,7 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   ) {
     try {
       return ModelBasicDeviceInfo.empty()
+        ..$isInstalled = otherData?[K_IS_INSTALLED]
         ..$operatingSystem = otherData?[K_OPERATING_SYSTEM]
         ..$userAgent = otherData?[K_USER_AGENT];
     } catch (e) {
@@ -203,6 +209,7 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   }) {
     try {
       final withNulls = <String, dynamic>{
+        K_IS_INSTALLED: this.$isInstalled,
         K_OPERATING_SYSTEM: this.$operatingSystem,
         K_USER_AGENT: this.$userAgent,
       }.mapWithDefault(defaultValue);
@@ -241,6 +248,9 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   ) {
     if (otherData != null && otherData.isNotEmpty) {
       final other = ModelBasicDeviceInfo.fromJson(otherData);
+      if (other.isInstalled != null) {
+        this.isInstalled = other.isInstalled!;
+      }
       if (other.operatingSystem != null) {
         this.operatingSystem = other.operatingSystem!;
       }
@@ -253,6 +263,14 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   //
   //
   //
+
+  // isInstalled.
+  bool? get isInstalledField => this.isInstalled;
+  set isInstalledField(bool? v) => this.isInstalled = v;
+  @protected
+  dynamic get $isInstalled => this.isInstalled;
+  @protected
+  set $isInstalled(v) => this.isInstalled = letBool(v);
 
   // operatingSystem.
   String? get operatingSystemField => this.operatingSystem;

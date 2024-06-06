@@ -19,6 +19,7 @@ typedef BasicDeviceInfo = ModelBasicDeviceInfo;
   fields: {
     ('operating_system?', String),
     ('user_agent?', String),
+    ('is_installed?', bool),
   },
 )
 // ignore: unused_element
