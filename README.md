@@ -22,13 +22,13 @@ dependencies:
   xyz_get_device_info: any # or the latest version
 ```
 
-2. Copy the folder `@xyz_get_device_info` to your project's `web` folder.
+2. Copy the folder [`xyz_get_device_info`](https://github.com/robmllze/xyz_device_info/tree/main/web/xyz_get_device_info) to your project's `web` folder.
 
 3. Copy the following code and paste it in the head section of your HTML file.
 
 ```html
 <script
   type="module"
-  src="@xyz_get_device_info/xyz_get_device_info.js"
+  src="xyz_get_device_info/xyz_get_device_info.js"
 ></script>
 ```
