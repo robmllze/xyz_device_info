@@ -1,5 +1,7 @@
 # 🇽🇾🇿 Get Device Info
 
+This package allows you to get some basic device info and works with WebAssembly.
+
 ## Getting Started
 
 ## Non-Web Installation
