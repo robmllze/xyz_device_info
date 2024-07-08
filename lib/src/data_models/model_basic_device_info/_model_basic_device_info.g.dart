@@ -24,18 +24,18 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   //
   //
 
-  static const K_IS_INSTALLED = 'is_installed';
-  static const K_OPERATING_SYSTEM = 'operating_system';
-  static const K_USER_AGENT = 'user_agent';
+  static const K_OPERATING_SYSTEM = 'operatingSystem';
+  static const K_USER_AGENT = 'userAgent';
+  static const K_IS_INSTALLED = 'isInstalled';
 
   static const CLASS = 'ModelBasicDeviceInfo';
 
   @override
   String get $class => CLASS;
 
-  bool? isInstalled;
   String? operatingSystem;
   String? userAgent;
+  bool? isInstalled;
 
   //
   //
@@ -48,14 +48,14 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   //
 
   factory ModelBasicDeviceInfo({
-    bool? isInstalled,
     String? operatingSystem,
     String? userAgent,
+    bool? isInstalled,
   }) {
     return ModelBasicDeviceInfo.b(
-      isInstalled: isInstalled,
       operatingSystem: operatingSystem,
       userAgent: userAgent,
+      isInstalled: isInstalled,
     );
   }
 
@@ -64,9 +64,9 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   //
 
   ModelBasicDeviceInfo.b({
-    this.isInstalled,
     this.operatingSystem,
     this.userAgent,
+    this.isInstalled,
   }) {}
 
   //
@@ -161,9 +161,9 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   ) {
     try {
       return ModelBasicDeviceInfo.empty()
-        ..$isInstalled = otherData?[K_IS_INSTALLED]
         ..$operatingSystem = otherData?[K_OPERATING_SYSTEM]
-        ..$userAgent = otherData?[K_USER_AGENT];
+        ..$userAgent = otherData?[K_USER_AGENT]
+        ..$isInstalled = otherData?[K_IS_INSTALLED];
     } catch (e) {
       return null;
     }
@@ -209,9 +209,9 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   }) {
     try {
       final withNulls = <String, dynamic>{
-        K_IS_INSTALLED: this.$isInstalled,
         K_OPERATING_SYSTEM: this.$operatingSystem,
         K_USER_AGENT: this.$userAgent,
+        K_IS_INSTALLED: this.$isInstalled,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
@@ -248,14 +248,14 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   ) {
     if (otherData != null && otherData.isNotEmpty) {
       final other = ModelBasicDeviceInfo.fromJson(otherData);
-      if (other.isInstalled != null) {
-        this.isInstalled = other.isInstalled!;
-      }
       if (other.operatingSystem != null) {
         this.operatingSystem = other.operatingSystem!;
       }
       if (other.userAgent != null) {
         this.userAgent = other.userAgent!;
+      }
+      if (other.isInstalled != null) {
+        this.isInstalled = other.isInstalled!;
       }
     }
   }
@@ -263,14 +263,6 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   //
   //
   //
-
-  // isInstalled.
-  bool? get isInstalledField => this.isInstalled;
-  set isInstalledField(bool? v) => this.isInstalled = v;
-  @protected
-  dynamic get $isInstalled => this.isInstalled;
-  @protected
-  set $isInstalled(v) => this.isInstalled = letBool(v);
 
   // operatingSystem.
   String? get operatingSystemField => this.operatingSystem;
@@ -289,4 +281,12 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   dynamic get $userAgent => this.userAgent?.toString().trim().nullIfEmpty;
   @protected
   set $userAgent(v) => this.userAgent = v?.toString().trim().nullIfEmpty;
+
+  // isInstalled.
+  bool? get isInstalledField => this.isInstalled;
+  set isInstalledField(bool? v) => this.isInstalled = v;
+  @protected
+  dynamic get $isInstalled => this.isInstalled;
+  @protected
+  set $isInstalled(v) => this.isInstalled = letBool(v);
 }

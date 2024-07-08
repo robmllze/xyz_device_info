@@ -15,47 +15,39 @@
 // ignore_for_file: unnecessary_null_comparison
 // ignore_for_file: unnecessary_this
 
-part of 'model_position.dart';
+part of 'model_js_navigator.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class ModelPosition extends _ModelPosition {
+class ModelJsNavigator extends Model {
   //
   //
   //
 
-  static const K_ALTITUDE = 'altitude';
-  static const K_LATITUDE = 'latitude';
-  static const K_LONGITUDE = 'longitude';
+  static const K_USER_AGENT = 'userAgent';
 
-  static const CLASS = 'ModelPosition';
+  static const CLASS = 'ModelJsNavigator';
 
   @override
   String get $class => CLASS;
 
-  double? altitude;
-  double? latitude;
-  double? longitude;
+  String? userAgent;
 
   //
   //
   //
 
-  ModelPosition.empty();
+  ModelJsNavigator.empty();
 
   //
   //
   //
 
-  factory ModelPosition({
-    double? altitude,
-    double? latitude,
-    double? longitude,
+  factory ModelJsNavigator({
+    String? userAgent,
   }) {
-    return ModelPosition.b(
-      altitude: altitude,
-      latitude: latitude,
-      longitude: longitude,
+    return ModelJsNavigator.b(
+      userAgent: userAgent,
     );
   }
 
@@ -63,28 +55,26 @@ class ModelPosition extends _ModelPosition {
   //
   //
 
-  ModelPosition.b({
-    this.altitude,
-    this.latitude,
-    this.longitude,
+  ModelJsNavigator.b({
+    this.userAgent,
   }) {}
 
   //
   //
   //
 
-  factory ModelPosition.from(
+  factory ModelJsNavigator.from(
     Model? other,
   ) {
     try {
       return fromOrNull(other)!;
     } catch (e) {
-      assert(false, 'ModelPosition.from: $e');
+      assert(false, 'ModelJsNavigator.from: $e');
       rethrow;
     }
   }
 
-  static ModelPosition? fromOrNull(
+  static ModelJsNavigator? fromOrNull(
     Model? other,
   ) {
     return fromJsonOrNull(other?.toJson())!;
@@ -94,19 +84,19 @@ class ModelPosition extends _ModelPosition {
   //
   //
 
-  factory ModelPosition.of(
-    ModelPosition other,
+  factory ModelJsNavigator.of(
+    ModelJsNavigator other,
   ) {
     try {
       return ofOrNull(other)!;
     } catch (e) {
-      assert(false, 'ModelPosition.of: $e');
+      assert(false, 'ModelJsNavigator.of: $e');
       rethrow;
     }
   }
 
-  static ModelPosition? ofOrNull(
-    ModelPosition? other,
+  static ModelJsNavigator? ofOrNull(
+    ModelJsNavigator? other,
   ) {
     return fromJsonOrNull(other?.toJson());
   }
@@ -115,26 +105,26 @@ class ModelPosition extends _ModelPosition {
   //
   //
 
-  factory ModelPosition.fromJsonString(
+  factory ModelJsNavigator.fromJsonString(
     String source,
   ) {
     try {
       return fromJsonStringOrNull(source)!;
     } catch (e) {
-      assert(false, 'ModelPosition.fromJsonString: $e');
+      assert(false, 'ModelJsNavigator.fromJsonString: $e');
       rethrow;
     }
   }
 
-  static ModelPosition? fromJsonStringOrNull(
+  static ModelJsNavigator? fromJsonStringOrNull(
     String? source,
   ) {
     try {
       if (source!.isNotEmpty) {
         final decoded = jsonDecode(source);
-        return ModelPosition.fromJson(decoded);
+        return ModelJsNavigator.fromJson(decoded);
       } else {
-        return ModelPosition.empty();
+        return ModelJsNavigator.empty();
       }
     } catch (_) {
       return null;
@@ -145,25 +135,22 @@ class ModelPosition extends _ModelPosition {
   //
   //
 
-  factory ModelPosition.fromJson(
+  factory ModelJsNavigator.fromJson(
     Map<String, dynamic>? otherData,
   ) {
     try {
       return fromJsonOrNull(otherData)!;
     } catch (e) {
-      assert(false, 'ModelPosition.fromJson: $e');
+      assert(false, 'ModelJsNavigator.fromJson: $e');
       rethrow;
     }
   }
 
-  static ModelPosition? fromJsonOrNull(
+  static ModelJsNavigator? fromJsonOrNull(
     Map<String, dynamic>? otherData,
   ) {
     try {
-      return ModelPosition.empty()
-        ..$altitude = otherData?[K_ALTITUDE]
-        ..$latitude = otherData?[K_LATITUDE]
-        ..$longitude = otherData?[K_LONGITUDE];
+      return ModelJsNavigator.empty()..$userAgent = otherData?[K_USER_AGENT];
     } catch (e) {
       return null;
     }
@@ -173,25 +160,25 @@ class ModelPosition extends _ModelPosition {
   //
   //
 
-  factory ModelPosition.fromUri(
+  factory ModelJsNavigator.fromUri(
     Uri? uri,
   ) {
     try {
       return fromUriOrNull(uri)!;
     } catch (e) {
-      assert(false, 'ModelPosition.fromUri: $e');
+      assert(false, 'ModelJsNavigator.fromUri: $e');
       rethrow;
     }
   }
 
-  static ModelPosition? fromUriOrNull(
+  static ModelJsNavigator? fromUriOrNull(
     Uri? uri,
   ) {
     try {
       if (uri != null && uri.path == CLASS) {
-        return ModelPosition.fromJson(uri.queryParameters);
+        return ModelJsNavigator.fromJson(uri.queryParameters);
       } else {
-        return ModelPosition.empty();
+        return ModelJsNavigator.empty();
       }
     } catch (_) {
       return null;
@@ -209,13 +196,11 @@ class ModelPosition extends _ModelPosition {
   }) {
     try {
       final withNulls = <String, dynamic>{
-        K_ALTITUDE: this.$altitude,
-        K_LATITUDE: this.$latitude,
-        K_LONGITUDE: this.$longitude,
+        K_USER_AGENT: this.$userAgent,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
-      assert(false, 'ModelPosition.toJson: $e');
+      assert(false, 'ModelJsNavigator.toJson: $e');
       rethrow;
     }
   }
@@ -226,7 +211,7 @@ class ModelPosition extends _ModelPosition {
 
   @override
   T empty<T extends Model>() {
-    return ModelPosition.b() as T;
+    return ModelJsNavigator.b() as T;
   }
 
   //
@@ -235,7 +220,7 @@ class ModelPosition extends _ModelPosition {
 
   @override
   T copy<T extends Model>() {
-    return (ModelPosition.b()..updateWith(this)) as T;
+    return (ModelJsNavigator.b()..updateWith(this)) as T;
   }
 
   //
@@ -247,15 +232,9 @@ class ModelPosition extends _ModelPosition {
     Map<String, dynamic>? otherData,
   ) {
     if (otherData != null && otherData.isNotEmpty) {
-      final other = ModelPosition.fromJson(otherData);
-      if (other.altitude != null) {
-        this.altitude = other.altitude!;
-      }
-      if (other.latitude != null) {
-        this.latitude = other.latitude!;
-      }
-      if (other.longitude != null) {
-        this.longitude = other.longitude!;
+      final other = ModelJsNavigator.fromJson(otherData);
+      if (other.userAgent != null) {
+        this.userAgent = other.userAgent!;
       }
     }
   }
@@ -264,27 +243,11 @@ class ModelPosition extends _ModelPosition {
   //
   //
 
-  // altitude.
-  double? get altitudeField => this.altitude;
-  set altitudeField(double? v) => this.altitude = v;
+  // userAgent.
+  String? get userAgentField => this.userAgent;
+  set userAgentField(String? v) => this.userAgent = v;
   @protected
-  dynamic get $altitude => this.altitude;
+  dynamic get $userAgent => this.userAgent?.toString().trim().nullIfEmpty;
   @protected
-  set $altitude(v) => this.altitude = letDouble(v);
-
-  // latitude.
-  double? get latitudeField => this.latitude;
-  set latitudeField(double? v) => this.latitude = v;
-  @protected
-  dynamic get $latitude => this.latitude;
-  @protected
-  set $latitude(v) => this.latitude = letDouble(v);
-
-  // longitude.
-  double? get longitudeField => this.longitude;
-  set longitudeField(double? v) => this.longitude = v;
-  @protected
-  dynamic get $longitude => this.longitude;
-  @protected
-  set $longitude(v) => this.longitude = letDouble(v);
+  set $userAgent(v) => this.userAgent = v?.toString().trim().nullIfEmpty;
 }

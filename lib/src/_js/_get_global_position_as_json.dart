@@ -12,21 +12,21 @@ import 'dart:async' show Completer;
 import 'dart:convert' show jsonDecode;
 import 'dart:js_interop' show JS;
 import 'dart:js' show allowInterop;
-import '../models/model_position/model_position.dart' show ModelPosition;
+import '/src/data_models/model_global_position/model_global_position.dart' show ModelGlobalPosition;
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-@JS('getPositionAsJson')
-external String getPositionAsJson(Function callback);
+@JS('getGlobalPositionAsJson')
+external String getGlobalPositionAsJson(Function callback);
 
-Future<ModelPosition?> getPosition() {
-  final completer = Completer<ModelPosition?>();
-  getPositionAsJson(
+Future<ModelGlobalPosition?> getGlobalPosition() {
+  final completer = Completer<ModelGlobalPosition?>();
+  getGlobalPositionAsJson(
     allowInterop(
       (source) {
         try {
           final data = Map<String, dynamic>.from(jsonDecode(source));
-          final model = ModelPosition.fromJson(data);
+          final model = ModelGlobalPosition.fromJson(data);
           completer.complete(model);
         } catch (e) {
           completer.complete(null);

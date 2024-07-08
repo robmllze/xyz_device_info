@@ -10,7 +10,7 @@
 
 import 'dart:js_interop';
 
-import '../models/model_js_navigator/model_js_navigator.dart';
+import '../data_models/model_js_navigator/model_js_navigator.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 

@@ -8,7 +8,7 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-export function getPositionAsJson(callback) {
+export function getGlobalPositionAsJson(callback) {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       function(position) {

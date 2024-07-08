@@ -8,7 +8,7 @@
 //.title~
 
 export 'get_basic_device_info/get_basic_device_info.dart';
-export 'models/model_basic_device_info/model_basic_device_info.dart';
-export 'models/model_js_navigator/model_js_navigator.dart';
-export 'models/model_js_screen/model_js_screen.dart';
-export 'models/model_position/model_position.dart';
+export 'data_models/model_basic_device_info/model_basic_device_info.dart';
+export 'data_models/model_js_navigator/model_js_navigator.dart';
+export 'data_models/model_js_screen/model_js_screen.dart';
+export 'data_models/model_global_position/model_global_position.dart';

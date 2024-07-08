@@ -9,7 +9,7 @@
 
 import '/_common.dart';
 
-part '_model_position.g.dart';
+part '_model_global_position.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -22,4 +22,4 @@ part '_model_position.g.dart';
   },
 )
 // ignore: unused_element
-abstract class _ModelPosition extends Model {}
+abstract class _ModelGlobalPosition extends Model {}

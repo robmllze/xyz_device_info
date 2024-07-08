@@ -24,13 +24,13 @@ class ModelJsScreen extends Model {
   //
   //
 
-  static const K_AVAIL_HEIGHT = 'avail_height';
-  static const K_AVAIL_WIDTH = 'avail_width';
-  static const K_COLOR_DEPTH = 'color_depth';
+  static const K_AVAIL_HEIGHT = 'availHeight';
+  static const K_AVAIL_WIDTH = 'availWidth';
+  static const K_WIDTH = 'width';
   static const K_HEIGHT = 'height';
   static const K_ORIENTATION = 'orientation';
-  static const K_PIXEL_DEPTH = 'pixel_depth';
-  static const K_WIDTH = 'width';
+  static const K_COLOR_DEPTH = 'colorDepth';
+  static const K_PIXEL_DEPTH = 'pixelDepth';
 
   static const CLASS = 'ModelJsScreen';
 
@@ -39,11 +39,11 @@ class ModelJsScreen extends Model {
 
   int? availHeight;
   int? availWidth;
-  int? colorDepth;
+  int? width;
   int? height;
   String? orientation;
+  int? colorDepth;
   int? pixelDepth;
-  int? width;
 
   //
   //
@@ -58,20 +58,20 @@ class ModelJsScreen extends Model {
   factory ModelJsScreen({
     int? availHeight,
     int? availWidth,
-    int? colorDepth,
+    int? width,
     int? height,
     String? orientation,
+    int? colorDepth,
     int? pixelDepth,
-    int? width,
   }) {
     return ModelJsScreen.b(
       availHeight: availHeight,
       availWidth: availWidth,
-      colorDepth: colorDepth,
+      width: width,
       height: height,
       orientation: orientation,
+      colorDepth: colorDepth,
       pixelDepth: pixelDepth,
-      width: width,
     );
   }
 
@@ -82,11 +82,11 @@ class ModelJsScreen extends Model {
   ModelJsScreen.b({
     this.availHeight,
     this.availWidth,
-    this.colorDepth,
+    this.width,
     this.height,
     this.orientation,
+    this.colorDepth,
     this.pixelDepth,
-    this.width,
   }) {}
 
   //
@@ -183,11 +183,11 @@ class ModelJsScreen extends Model {
       return ModelJsScreen.empty()
         ..$availHeight = otherData?[K_AVAIL_HEIGHT]
         ..$availWidth = otherData?[K_AVAIL_WIDTH]
-        ..$colorDepth = otherData?[K_COLOR_DEPTH]
+        ..$width = otherData?[K_WIDTH]
         ..$height = otherData?[K_HEIGHT]
         ..$orientation = otherData?[K_ORIENTATION]
-        ..$pixelDepth = otherData?[K_PIXEL_DEPTH]
-        ..$width = otherData?[K_WIDTH];
+        ..$colorDepth = otherData?[K_COLOR_DEPTH]
+        ..$pixelDepth = otherData?[K_PIXEL_DEPTH];
     } catch (e) {
       return null;
     }
@@ -235,11 +235,11 @@ class ModelJsScreen extends Model {
       final withNulls = <String, dynamic>{
         K_AVAIL_HEIGHT: this.$availHeight,
         K_AVAIL_WIDTH: this.$availWidth,
-        K_COLOR_DEPTH: this.$colorDepth,
+        K_WIDTH: this.$width,
         K_HEIGHT: this.$height,
         K_ORIENTATION: this.$orientation,
+        K_COLOR_DEPTH: this.$colorDepth,
         K_PIXEL_DEPTH: this.$pixelDepth,
-        K_WIDTH: this.$width,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
@@ -282,8 +282,8 @@ class ModelJsScreen extends Model {
       if (other.availWidth != null) {
         this.availWidth = other.availWidth!;
       }
-      if (other.colorDepth != null) {
-        this.colorDepth = other.colorDepth!;
+      if (other.width != null) {
+        this.width = other.width!;
       }
       if (other.height != null) {
         this.height = other.height!;
@@ -291,11 +291,11 @@ class ModelJsScreen extends Model {
       if (other.orientation != null) {
         this.orientation = other.orientation!;
       }
+      if (other.colorDepth != null) {
+        this.colorDepth = other.colorDepth!;
+      }
       if (other.pixelDepth != null) {
         this.pixelDepth = other.pixelDepth!;
-      }
-      if (other.width != null) {
-        this.width = other.width!;
       }
     }
   }
@@ -320,13 +320,13 @@ class ModelJsScreen extends Model {
   @protected
   set $availWidth(v) => this.availWidth = letInt(v);
 
-  // colorDepth.
-  int? get colorDepthField => this.colorDepth;
-  set colorDepthField(int? v) => this.colorDepth = v;
+  // width.
+  int? get widthField => this.width;
+  set widthField(int? v) => this.width = v;
   @protected
-  dynamic get $colorDepth => this.colorDepth;
+  dynamic get $width => this.width;
   @protected
-  set $colorDepth(v) => this.colorDepth = letInt(v);
+  set $width(v) => this.width = letInt(v);
 
   // height.
   int? get heightField => this.height;
@@ -344,6 +344,14 @@ class ModelJsScreen extends Model {
   @protected
   set $orientation(v) => this.orientation = v?.toString().trim().nullIfEmpty;
 
+  // colorDepth.
+  int? get colorDepthField => this.colorDepth;
+  set colorDepthField(int? v) => this.colorDepth = v;
+  @protected
+  dynamic get $colorDepth => this.colorDepth;
+  @protected
+  set $colorDepth(v) => this.colorDepth = letInt(v);
+
   // pixelDepth.
   int? get pixelDepthField => this.pixelDepth;
   set pixelDepthField(int? v) => this.pixelDepth = v;
@@ -351,12 +359,4 @@ class ModelJsScreen extends Model {
   dynamic get $pixelDepth => this.pixelDepth;
   @protected
   set $pixelDepth(v) => this.pixelDepth = letInt(v);
-
-  // width.
-  int? get widthField => this.width;
-  set widthField(int? v) => this.width = v;
-  @protected
-  dynamic get $width => this.width;
-  @protected
-  set $width(v) => this.width = letInt(v);
 }

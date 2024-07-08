@@ -10,4 +10,4 @@
 export 'model_basic_device_info/model_basic_device_info.dart';
 export 'model_js_navigator/model_js_navigator.dart';
 export 'model_js_screen/model_js_screen.dart';
-export 'model_position/model_position.dart';
+export 'model_global_position/model_global_position.dart';
