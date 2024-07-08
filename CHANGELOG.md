@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.6.0]
+
+- Released @ 2024-07-08 02:34:48.290820Z
+- Update getPositionAsJson to getGlobalPositionAsJson
+
 ## [0.5.0]
 
 - Released @ 2024-07-08 02:14:30.574435Z
