@@ -24,57 +24,45 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   //
   //
 
-  static const K_OPERATING_SYSTEM = 'operatingSystem';
-  static const K_USER_AGENT = 'userAgent';
-  static const K_IS_INSTALLED = 'isInstalled';
-
-  static const CLASS = 'ModelBasicDeviceInfo';
+  static const CLASS_NAME = 'ModelBasicDeviceInfo';
 
   @override
-  String get $class => CLASS;
+  String get $className => CLASS_NAME;
 
-  String? operatingSystem;
-  String? userAgent;
-  bool? isInstalled;
-
-  //
-  //
-  //
-
-  ModelBasicDeviceInfo.empty();
+  final String? operatingSystem;
+  final String? userAgent;
+  final bool? isInstalled;
 
   //
   //
   //
 
-  factory ModelBasicDeviceInfo({
+  const ModelBasicDeviceInfo({
+    this.operatingSystem,
+    this.userAgent,
+    this.isInstalled,
+  });
+
+  const ModelBasicDeviceInfo.c2({
+    this.operatingSystem,
+    this.userAgent,
+    this.isInstalled,
+  });
+
+  factory ModelBasicDeviceInfo.c3({
     String? operatingSystem,
     String? userAgent,
     bool? isInstalled,
   }) {
-    return ModelBasicDeviceInfo.b(
+    return ModelBasicDeviceInfo(
       operatingSystem: operatingSystem,
       userAgent: userAgent,
       isInstalled: isInstalled,
     );
   }
 
-  //
-  //
-  //
-
-  ModelBasicDeviceInfo.b({
-    this.operatingSystem,
-    this.userAgent,
-    this.isInstalled,
-  }) {}
-
-  //
-  //
-  //
-
   factory ModelBasicDeviceInfo.from(
-    Model? other,
+    BaseModel? other,
   ) {
     try {
       return fromOrNull(other)!;
@@ -85,14 +73,10 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   }
 
   static ModelBasicDeviceInfo? fromOrNull(
-    Model? other,
+    BaseModel? other,
   ) {
     return fromJsonOrNull(other?.toJson())!;
   }
-
-  //
-  //
-  //
 
   factory ModelBasicDeviceInfo.of(
     ModelBasicDeviceInfo other,
@@ -110,10 +94,6 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   ) {
     return fromJsonOrNull(other?.toJson());
   }
-
-  //
-  //
-  //
 
   factory ModelBasicDeviceInfo.fromJsonString(
     String source,
@@ -134,16 +114,12 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
         final decoded = jsonDecode(source);
         return ModelBasicDeviceInfo.fromJson(decoded);
       } else {
-        return ModelBasicDeviceInfo.empty();
+        return const ModelBasicDeviceInfo.c2();
       }
     } catch (_) {
       return null;
     }
   }
-
-  //
-  //
-  //
 
   factory ModelBasicDeviceInfo.fromJson(
     Map<String, dynamic>? otherData,
@@ -160,18 +136,23 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      return ModelBasicDeviceInfo.empty()
-        ..$operatingSystem = otherData?[K_OPERATING_SYSTEM]
-        ..$userAgent = otherData?[K_USER_AGENT]
-        ..$isInstalled = otherData?[K_IS_INSTALLED];
+      final operatingSystem0 =
+          otherData?[ModelBasicDeviceInfoFieldNames.operatingSystem];
+      final operatingSystem = operatingSystem0?.toString().trim().nullIfEmpty;
+      final userAgent0 = otherData?[ModelBasicDeviceInfoFieldNames.userAgent];
+      final userAgent = userAgent0?.toString().trim().nullIfEmpty;
+      final isInstalled0 =
+          otherData?[ModelBasicDeviceInfoFieldNames.isInstalled];
+      final isInstalled = letBool(isInstalled0);
+      return ModelBasicDeviceInfo(
+        operatingSystem: operatingSystem,
+        userAgent: userAgent,
+        isInstalled: isInstalled,
+      );
     } catch (e) {
       return null;
     }
   }
-
-  //
-  //
-  //
 
   factory ModelBasicDeviceInfo.fromUri(
     Uri? uri,
@@ -188,10 +169,10 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
     Uri? uri,
   ) {
     try {
-      if (uri != null && uri.path == CLASS) {
+      if (uri != null && uri.path == CLASS_NAME) {
         return ModelBasicDeviceInfo.fromJson(uri.queryParameters);
       } else {
-        return ModelBasicDeviceInfo.empty();
+        return const ModelBasicDeviceInfo.c2();
       }
     } catch (_) {
       return null;
@@ -208,10 +189,13 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
     bool includeNulls = false,
   }) {
     try {
+      final operatingSystem0 = this.operatingSystem?.trim().nullIfEmpty;
+      final userAgent0 = this.userAgent?.trim().nullIfEmpty;
+      final isInstalled0 = this.isInstalled;
       final withNulls = <String, dynamic>{
-        K_OPERATING_SYSTEM: this.$operatingSystem,
-        K_USER_AGENT: this.$userAgent,
-        K_IS_INSTALLED: this.$isInstalled,
+        ModelBasicDeviceInfoFieldNames.operatingSystem: operatingSystem0,
+        ModelBasicDeviceInfoFieldNames.userAgent: userAgent0,
+        ModelBasicDeviceInfoFieldNames.isInstalled: isInstalled0,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
@@ -225,39 +209,11 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   //
 
   @override
-  T empty<T extends Model>() {
-    return ModelBasicDeviceInfo.b() as T;
-  }
-
-  //
-  //
-  //
-
-  @override
-  T copy<T extends Model>() {
-    return (ModelBasicDeviceInfo.b()..updateWith(this)) as T;
-  }
-
-  //
-  //
-  //
-
-  @override
-  void updateWithJson(
-    Map<String, dynamic>? otherData,
-  ) {
-    if (otherData != null && otherData.isNotEmpty) {
-      final other = ModelBasicDeviceInfo.fromJson(otherData);
-      if (other.operatingSystem != null) {
-        this.operatingSystem = other.operatingSystem!;
-      }
-      if (other.userAgent != null) {
-        this.userAgent = other.userAgent!;
-      }
-      if (other.isInstalled != null) {
-        this.isInstalled = other.isInstalled!;
-      }
-    }
+  ModelBasicDeviceInfo copyWith(BaseModel? other) {
+    final a = this.toJson();
+    final b = other?.toJson();
+    final c = {...a, ...?b};
+    return ModelBasicDeviceInfo.fromJson(c);
   }
 
   //
@@ -266,27 +222,28 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
 
   // operatingSystem.
   String? get operatingSystemField => this.operatingSystem;
-  set operatingSystemField(String? v) => this.operatingSystem = v;
-  @protected
-  dynamic get $operatingSystem =>
-      this.operatingSystem?.toString().trim().nullIfEmpty;
-  @protected
-  set $operatingSystem(v) =>
-      this.operatingSystem = v?.toString().trim().nullIfEmpty;
 
   // userAgent.
   String? get userAgentField => this.userAgent;
-  set userAgentField(String? v) => this.userAgent = v;
-  @protected
-  dynamic get $userAgent => this.userAgent?.toString().trim().nullIfEmpty;
-  @protected
-  set $userAgent(v) => this.userAgent = v?.toString().trim().nullIfEmpty;
 
   // isInstalled.
   bool? get isInstalledField => this.isInstalled;
-  set isInstalledField(bool? v) => this.isInstalled = v;
-  @protected
-  dynamic get $isInstalled => this.isInstalled;
-  @protected
-  set $isInstalled(v) => this.isInstalled = letBool(v);
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+final class ModelBasicDeviceInfoFieldNames {
+  //
+  //
+  //
+
+  static const operatingSystem = 'operatingSystem';
+  static const userAgent = 'userAgent';
+  static const isInstalled = 'isInstalled';
+
+  //
+  //
+  //
+
+  const ModelBasicDeviceInfoFieldNames._();
 }

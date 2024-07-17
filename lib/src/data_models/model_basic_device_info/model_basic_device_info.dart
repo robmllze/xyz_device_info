@@ -8,6 +8,7 @@
 //.title~
 
 import '/_common.dart';
+
 part '_model_basic_device_info.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
@@ -22,34 +23,35 @@ typedef BasicDeviceInfo = ModelBasicDeviceInfo;
     ('is_installed?', bool),
   },
 )
-// ignore: unused_element
-abstract class _ModelBasicDeviceInfo extends ThisModel<ModelBasicDeviceInfo> {
-  //
-  //
-  //
+abstract class _ModelBasicDeviceInfo extends Model {
+  const _ModelBasicDeviceInfo();
+}
 
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+extension ModelBasicDeviceInfoExtension on ModelBasicDeviceInfo {
   bool userAgentIsSafari() {
-    final source = this.model.userAgent?.toLowerCase() ?? '';
+    final source = this.userAgent?.toLowerCase() ?? '';
     return source.contains('safari');
   }
 
   bool userAgentIsChrome() {
-    final source = this.model.userAgent?.toLowerCase() ?? '';
+    final source = this.userAgent?.toLowerCase() ?? '';
     return source.contains('chrome');
   }
 
   bool userAgentIsMacOS() {
-    final source = this.model.userAgent?.toLowerCase() ?? '';
+    final source = this.userAgent?.toLowerCase() ?? '';
     return source.contains('mac os') || source.contains('macos');
   }
 
   bool userAgentIsWindows() {
-    final source = this.model.userAgent?.toLowerCase() ?? '';
+    final source = this.userAgent?.toLowerCase() ?? '';
     return source.contains('windows');
   }
 
   bool userAgentIsAndroid() {
-    final source = this.model.userAgent?.toLowerCase() ?? '';
+    final source = this.userAgent?.toLowerCase() ?? '';
     return source.contains('android');
   }
 }

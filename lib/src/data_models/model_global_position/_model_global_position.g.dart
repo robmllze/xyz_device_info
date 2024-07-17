@@ -24,57 +24,45 @@ class ModelGlobalPosition extends _ModelGlobalPosition {
   //
   //
 
-  static const K_ALTITUDE = 'altitude';
-  static const K_LATITUDE = 'latitude';
-  static const K_LONGITUDE = 'longitude';
-
-  static const CLASS = 'ModelGlobalPosition';
+  static const CLASS_NAME = 'ModelGlobalPosition';
 
   @override
-  String get $class => CLASS;
+  String get $className => CLASS_NAME;
 
-  double? altitude;
-  double? latitude;
-  double? longitude;
-
-  //
-  //
-  //
-
-  ModelGlobalPosition.empty();
+  final double? altitude;
+  final double? latitude;
+  final double? longitude;
 
   //
   //
   //
 
-  factory ModelGlobalPosition({
+  const ModelGlobalPosition({
+    this.altitude,
+    this.latitude,
+    this.longitude,
+  });
+
+  const ModelGlobalPosition.c2({
+    this.altitude,
+    this.latitude,
+    this.longitude,
+  });
+
+  factory ModelGlobalPosition.c3({
     double? altitude,
     double? latitude,
     double? longitude,
   }) {
-    return ModelGlobalPosition.b(
+    return ModelGlobalPosition(
       altitude: altitude,
       latitude: latitude,
       longitude: longitude,
     );
   }
 
-  //
-  //
-  //
-
-  ModelGlobalPosition.b({
-    this.altitude,
-    this.latitude,
-    this.longitude,
-  }) {}
-
-  //
-  //
-  //
-
   factory ModelGlobalPosition.from(
-    Model? other,
+    BaseModel? other,
   ) {
     try {
       return fromOrNull(other)!;
@@ -85,14 +73,10 @@ class ModelGlobalPosition extends _ModelGlobalPosition {
   }
 
   static ModelGlobalPosition? fromOrNull(
-    Model? other,
+    BaseModel? other,
   ) {
     return fromJsonOrNull(other?.toJson())!;
   }
-
-  //
-  //
-  //
 
   factory ModelGlobalPosition.of(
     ModelGlobalPosition other,
@@ -110,10 +94,6 @@ class ModelGlobalPosition extends _ModelGlobalPosition {
   ) {
     return fromJsonOrNull(other?.toJson());
   }
-
-  //
-  //
-  //
 
   factory ModelGlobalPosition.fromJsonString(
     String source,
@@ -134,16 +114,12 @@ class ModelGlobalPosition extends _ModelGlobalPosition {
         final decoded = jsonDecode(source);
         return ModelGlobalPosition.fromJson(decoded);
       } else {
-        return ModelGlobalPosition.empty();
+        return const ModelGlobalPosition.c2();
       }
     } catch (_) {
       return null;
     }
   }
-
-  //
-  //
-  //
 
   factory ModelGlobalPosition.fromJson(
     Map<String, dynamic>? otherData,
@@ -160,18 +136,21 @@ class ModelGlobalPosition extends _ModelGlobalPosition {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      return ModelGlobalPosition.empty()
-        ..$altitude = otherData?[K_ALTITUDE]
-        ..$latitude = otherData?[K_LATITUDE]
-        ..$longitude = otherData?[K_LONGITUDE];
+      final altitude0 = otherData?[ModelGlobalPositionFieldNames.altitude];
+      final altitude = letDouble(altitude0);
+      final latitude0 = otherData?[ModelGlobalPositionFieldNames.latitude];
+      final latitude = letDouble(latitude0);
+      final longitude0 = otherData?[ModelGlobalPositionFieldNames.longitude];
+      final longitude = letDouble(longitude0);
+      return ModelGlobalPosition(
+        altitude: altitude,
+        latitude: latitude,
+        longitude: longitude,
+      );
     } catch (e) {
       return null;
     }
   }
-
-  //
-  //
-  //
 
   factory ModelGlobalPosition.fromUri(
     Uri? uri,
@@ -188,10 +167,10 @@ class ModelGlobalPosition extends _ModelGlobalPosition {
     Uri? uri,
   ) {
     try {
-      if (uri != null && uri.path == CLASS) {
+      if (uri != null && uri.path == CLASS_NAME) {
         return ModelGlobalPosition.fromJson(uri.queryParameters);
       } else {
-        return ModelGlobalPosition.empty();
+        return const ModelGlobalPosition.c2();
       }
     } catch (_) {
       return null;
@@ -208,10 +187,13 @@ class ModelGlobalPosition extends _ModelGlobalPosition {
     bool includeNulls = false,
   }) {
     try {
+      final altitude0 = this.altitude;
+      final latitude0 = this.latitude;
+      final longitude0 = this.longitude;
       final withNulls = <String, dynamic>{
-        K_ALTITUDE: this.$altitude,
-        K_LATITUDE: this.$latitude,
-        K_LONGITUDE: this.$longitude,
+        ModelGlobalPositionFieldNames.altitude: altitude0,
+        ModelGlobalPositionFieldNames.latitude: latitude0,
+        ModelGlobalPositionFieldNames.longitude: longitude0,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
@@ -225,39 +207,11 @@ class ModelGlobalPosition extends _ModelGlobalPosition {
   //
 
   @override
-  T empty<T extends Model>() {
-    return ModelGlobalPosition.b() as T;
-  }
-
-  //
-  //
-  //
-
-  @override
-  T copy<T extends Model>() {
-    return (ModelGlobalPosition.b()..updateWith(this)) as T;
-  }
-
-  //
-  //
-  //
-
-  @override
-  void updateWithJson(
-    Map<String, dynamic>? otherData,
-  ) {
-    if (otherData != null && otherData.isNotEmpty) {
-      final other = ModelGlobalPosition.fromJson(otherData);
-      if (other.altitude != null) {
-        this.altitude = other.altitude!;
-      }
-      if (other.latitude != null) {
-        this.latitude = other.latitude!;
-      }
-      if (other.longitude != null) {
-        this.longitude = other.longitude!;
-      }
-    }
+  ModelGlobalPosition copyWith(BaseModel? other) {
+    final a = this.toJson();
+    final b = other?.toJson();
+    final c = {...a, ...?b};
+    return ModelGlobalPosition.fromJson(c);
   }
 
   //
@@ -266,25 +220,28 @@ class ModelGlobalPosition extends _ModelGlobalPosition {
 
   // altitude.
   double? get altitudeField => this.altitude;
-  set altitudeField(double? v) => this.altitude = v;
-  @protected
-  dynamic get $altitude => this.altitude;
-  @protected
-  set $altitude(v) => this.altitude = letDouble(v);
 
   // latitude.
   double? get latitudeField => this.latitude;
-  set latitudeField(double? v) => this.latitude = v;
-  @protected
-  dynamic get $latitude => this.latitude;
-  @protected
-  set $latitude(v) => this.latitude = letDouble(v);
 
   // longitude.
   double? get longitudeField => this.longitude;
-  set longitudeField(double? v) => this.longitude = v;
-  @protected
-  dynamic get $longitude => this.longitude;
-  @protected
-  set $longitude(v) => this.longitude = letDouble(v);
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+final class ModelGlobalPositionFieldNames {
+  //
+  //
+  //
+
+  static const altitude = 'altitude';
+  static const latitude = 'latitude';
+  static const longitude = 'longitude';
+
+  //
+  //
+  //
+
+  const ModelGlobalPositionFieldNames._();
 }

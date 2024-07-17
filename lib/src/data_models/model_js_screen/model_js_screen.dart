@@ -16,6 +16,7 @@ part '_model_js_screen.g.dart';
 typedef JsScreen = ModelJsScreen;
 
 @GenerateModel(
+  shouldInherit: true,
   fields: {
     ('avail_height?', int),
     ('avail_width?', int),
@@ -26,5 +27,6 @@ typedef JsScreen = ModelJsScreen;
     ('pixel_depth?', int),
   },
 )
-// ignore: unused_element
-abstract class _ModelJsScreen {}
+abstract class _ModelJsScreen extends Model {
+  const _ModelJsScreen();
+}

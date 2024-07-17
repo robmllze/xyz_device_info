@@ -19,52 +19,40 @@ part of 'model_js_navigator.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class ModelJsNavigator extends Model {
+class ModelJsNavigator extends _ModelJsNavigator {
   //
   //
   //
 
-  static const K_USER_AGENT = 'userAgent';
-
-  static const CLASS = 'ModelJsNavigator';
+  static const CLASS_NAME = 'ModelJsNavigator';
 
   @override
-  String get $class => CLASS;
+  String get $className => CLASS_NAME;
 
-  String? userAgent;
-
-  //
-  //
-  //
-
-  ModelJsNavigator.empty();
+  final String? userAgent;
 
   //
   //
   //
 
-  factory ModelJsNavigator({
+  const ModelJsNavigator({
+    this.userAgent,
+  });
+
+  const ModelJsNavigator.c2({
+    this.userAgent,
+  });
+
+  factory ModelJsNavigator.c3({
     String? userAgent,
   }) {
-    return ModelJsNavigator.b(
+    return ModelJsNavigator(
       userAgent: userAgent,
     );
   }
 
-  //
-  //
-  //
-
-  ModelJsNavigator.b({
-    this.userAgent,
-  }) {}
-
-  //
-  //
-  //
-
   factory ModelJsNavigator.from(
-    Model? other,
+    BaseModel? other,
   ) {
     try {
       return fromOrNull(other)!;
@@ -75,14 +63,10 @@ class ModelJsNavigator extends Model {
   }
 
   static ModelJsNavigator? fromOrNull(
-    Model? other,
+    BaseModel? other,
   ) {
     return fromJsonOrNull(other?.toJson())!;
   }
-
-  //
-  //
-  //
 
   factory ModelJsNavigator.of(
     ModelJsNavigator other,
@@ -100,10 +84,6 @@ class ModelJsNavigator extends Model {
   ) {
     return fromJsonOrNull(other?.toJson());
   }
-
-  //
-  //
-  //
 
   factory ModelJsNavigator.fromJsonString(
     String source,
@@ -124,16 +104,12 @@ class ModelJsNavigator extends Model {
         final decoded = jsonDecode(source);
         return ModelJsNavigator.fromJson(decoded);
       } else {
-        return ModelJsNavigator.empty();
+        return const ModelJsNavigator.c2();
       }
     } catch (_) {
       return null;
     }
   }
-
-  //
-  //
-  //
 
   factory ModelJsNavigator.fromJson(
     Map<String, dynamic>? otherData,
@@ -150,15 +126,15 @@ class ModelJsNavigator extends Model {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      return ModelJsNavigator.empty()..$userAgent = otherData?[K_USER_AGENT];
+      final userAgent0 = otherData?[ModelJsNavigatorFieldNames.userAgent];
+      final userAgent = userAgent0?.toString().trim().nullIfEmpty;
+      return ModelJsNavigator(
+        userAgent: userAgent,
+      );
     } catch (e) {
       return null;
     }
   }
-
-  //
-  //
-  //
 
   factory ModelJsNavigator.fromUri(
     Uri? uri,
@@ -175,10 +151,10 @@ class ModelJsNavigator extends Model {
     Uri? uri,
   ) {
     try {
-      if (uri != null && uri.path == CLASS) {
+      if (uri != null && uri.path == CLASS_NAME) {
         return ModelJsNavigator.fromJson(uri.queryParameters);
       } else {
-        return ModelJsNavigator.empty();
+        return const ModelJsNavigator.c2();
       }
     } catch (_) {
       return null;
@@ -195,8 +171,9 @@ class ModelJsNavigator extends Model {
     bool includeNulls = false,
   }) {
     try {
+      final userAgent0 = this.userAgent?.trim().nullIfEmpty;
       final withNulls = <String, dynamic>{
-        K_USER_AGENT: this.$userAgent,
+        ModelJsNavigatorFieldNames.userAgent: userAgent0,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
@@ -210,33 +187,11 @@ class ModelJsNavigator extends Model {
   //
 
   @override
-  T empty<T extends Model>() {
-    return ModelJsNavigator.b() as T;
-  }
-
-  //
-  //
-  //
-
-  @override
-  T copy<T extends Model>() {
-    return (ModelJsNavigator.b()..updateWith(this)) as T;
-  }
-
-  //
-  //
-  //
-
-  @override
-  void updateWithJson(
-    Map<String, dynamic>? otherData,
-  ) {
-    if (otherData != null && otherData.isNotEmpty) {
-      final other = ModelJsNavigator.fromJson(otherData);
-      if (other.userAgent != null) {
-        this.userAgent = other.userAgent!;
-      }
-    }
+  ModelJsNavigator copyWith(BaseModel? other) {
+    final a = this.toJson();
+    final b = other?.toJson();
+    final c = {...a, ...?b};
+    return ModelJsNavigator.fromJson(c);
   }
 
   //
@@ -245,9 +200,20 @@ class ModelJsNavigator extends Model {
 
   // userAgent.
   String? get userAgentField => this.userAgent;
-  set userAgentField(String? v) => this.userAgent = v;
-  @protected
-  dynamic get $userAgent => this.userAgent?.toString().trim().nullIfEmpty;
-  @protected
-  set $userAgent(v) => this.userAgent = v?.toString().trim().nullIfEmpty;
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+final class ModelJsNavigatorFieldNames {
+  //
+  //
+  //
+
+  static const userAgent = 'userAgent';
+
+  //
+  //
+  //
+
+  const ModelJsNavigatorFieldNames._();
 }

@@ -21,5 +21,6 @@ part '_model_global_position.g.dart';
     ('longitude?', double),
   },
 )
-// ignore: unused_element
-abstract class _ModelGlobalPosition extends Model {}
+abstract class _ModelGlobalPosition extends Model {
+  const _ModelGlobalPosition();
+}

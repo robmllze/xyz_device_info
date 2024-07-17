@@ -19,43 +19,49 @@ part of 'model_js_screen.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class ModelJsScreen extends Model {
+class ModelJsScreen extends _ModelJsScreen {
   //
   //
   //
 
-  static const K_AVAIL_HEIGHT = 'availHeight';
-  static const K_AVAIL_WIDTH = 'availWidth';
-  static const K_WIDTH = 'width';
-  static const K_HEIGHT = 'height';
-  static const K_ORIENTATION = 'orientation';
-  static const K_COLOR_DEPTH = 'colorDepth';
-  static const K_PIXEL_DEPTH = 'pixelDepth';
-
-  static const CLASS = 'ModelJsScreen';
+  static const CLASS_NAME = 'ModelJsScreen';
 
   @override
-  String get $class => CLASS;
+  String get $className => CLASS_NAME;
 
-  int? availHeight;
-  int? availWidth;
-  int? width;
-  int? height;
-  String? orientation;
-  int? colorDepth;
-  int? pixelDepth;
-
-  //
-  //
-  //
-
-  ModelJsScreen.empty();
+  final int? availHeight;
+  final int? availWidth;
+  final int? width;
+  final int? height;
+  final String? orientation;
+  final int? colorDepth;
+  final int? pixelDepth;
 
   //
   //
   //
 
-  factory ModelJsScreen({
+  const ModelJsScreen({
+    this.availHeight,
+    this.availWidth,
+    this.width,
+    this.height,
+    this.orientation,
+    this.colorDepth,
+    this.pixelDepth,
+  });
+
+  const ModelJsScreen.c2({
+    this.availHeight,
+    this.availWidth,
+    this.width,
+    this.height,
+    this.orientation,
+    this.colorDepth,
+    this.pixelDepth,
+  });
+
+  factory ModelJsScreen.c3({
     int? availHeight,
     int? availWidth,
     int? width,
@@ -64,7 +70,7 @@ class ModelJsScreen extends Model {
     int? colorDepth,
     int? pixelDepth,
   }) {
-    return ModelJsScreen.b(
+    return ModelJsScreen(
       availHeight: availHeight,
       availWidth: availWidth,
       width: width,
@@ -75,26 +81,8 @@ class ModelJsScreen extends Model {
     );
   }
 
-  //
-  //
-  //
-
-  ModelJsScreen.b({
-    this.availHeight,
-    this.availWidth,
-    this.width,
-    this.height,
-    this.orientation,
-    this.colorDepth,
-    this.pixelDepth,
-  }) {}
-
-  //
-  //
-  //
-
   factory ModelJsScreen.from(
-    Model? other,
+    BaseModel? other,
   ) {
     try {
       return fromOrNull(other)!;
@@ -105,14 +93,10 @@ class ModelJsScreen extends Model {
   }
 
   static ModelJsScreen? fromOrNull(
-    Model? other,
+    BaseModel? other,
   ) {
     return fromJsonOrNull(other?.toJson())!;
   }
-
-  //
-  //
-  //
 
   factory ModelJsScreen.of(
     ModelJsScreen other,
@@ -130,10 +114,6 @@ class ModelJsScreen extends Model {
   ) {
     return fromJsonOrNull(other?.toJson());
   }
-
-  //
-  //
-  //
 
   factory ModelJsScreen.fromJsonString(
     String source,
@@ -154,16 +134,12 @@ class ModelJsScreen extends Model {
         final decoded = jsonDecode(source);
         return ModelJsScreen.fromJson(decoded);
       } else {
-        return ModelJsScreen.empty();
+        return const ModelJsScreen.c2();
       }
     } catch (_) {
       return null;
     }
   }
-
-  //
-  //
-  //
 
   factory ModelJsScreen.fromJson(
     Map<String, dynamic>? otherData,
@@ -180,22 +156,33 @@ class ModelJsScreen extends Model {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      return ModelJsScreen.empty()
-        ..$availHeight = otherData?[K_AVAIL_HEIGHT]
-        ..$availWidth = otherData?[K_AVAIL_WIDTH]
-        ..$width = otherData?[K_WIDTH]
-        ..$height = otherData?[K_HEIGHT]
-        ..$orientation = otherData?[K_ORIENTATION]
-        ..$colorDepth = otherData?[K_COLOR_DEPTH]
-        ..$pixelDepth = otherData?[K_PIXEL_DEPTH];
+      final availHeight0 = otherData?[ModelJsScreenFieldNames.availHeight];
+      final availHeight = letInt(availHeight0);
+      final availWidth0 = otherData?[ModelJsScreenFieldNames.availWidth];
+      final availWidth = letInt(availWidth0);
+      final width0 = otherData?[ModelJsScreenFieldNames.width];
+      final width = letInt(width0);
+      final height0 = otherData?[ModelJsScreenFieldNames.height];
+      final height = letInt(height0);
+      final orientation0 = otherData?[ModelJsScreenFieldNames.orientation];
+      final orientation = orientation0?.toString().trim().nullIfEmpty;
+      final colorDepth0 = otherData?[ModelJsScreenFieldNames.colorDepth];
+      final colorDepth = letInt(colorDepth0);
+      final pixelDepth0 = otherData?[ModelJsScreenFieldNames.pixelDepth];
+      final pixelDepth = letInt(pixelDepth0);
+      return ModelJsScreen(
+        availHeight: availHeight,
+        availWidth: availWidth,
+        width: width,
+        height: height,
+        orientation: orientation,
+        colorDepth: colorDepth,
+        pixelDepth: pixelDepth,
+      );
     } catch (e) {
       return null;
     }
   }
-
-  //
-  //
-  //
 
   factory ModelJsScreen.fromUri(
     Uri? uri,
@@ -212,10 +199,10 @@ class ModelJsScreen extends Model {
     Uri? uri,
   ) {
     try {
-      if (uri != null && uri.path == CLASS) {
+      if (uri != null && uri.path == CLASS_NAME) {
         return ModelJsScreen.fromJson(uri.queryParameters);
       } else {
-        return ModelJsScreen.empty();
+        return const ModelJsScreen.c2();
       }
     } catch (_) {
       return null;
@@ -232,14 +219,21 @@ class ModelJsScreen extends Model {
     bool includeNulls = false,
   }) {
     try {
+      final availHeight0 = this.availHeight;
+      final availWidth0 = this.availWidth;
+      final width0 = this.width;
+      final height0 = this.height;
+      final orientation0 = this.orientation?.trim().nullIfEmpty;
+      final colorDepth0 = this.colorDepth;
+      final pixelDepth0 = this.pixelDepth;
       final withNulls = <String, dynamic>{
-        K_AVAIL_HEIGHT: this.$availHeight,
-        K_AVAIL_WIDTH: this.$availWidth,
-        K_WIDTH: this.$width,
-        K_HEIGHT: this.$height,
-        K_ORIENTATION: this.$orientation,
-        K_COLOR_DEPTH: this.$colorDepth,
-        K_PIXEL_DEPTH: this.$pixelDepth,
+        ModelJsScreenFieldNames.availHeight: availHeight0,
+        ModelJsScreenFieldNames.availWidth: availWidth0,
+        ModelJsScreenFieldNames.width: width0,
+        ModelJsScreenFieldNames.height: height0,
+        ModelJsScreenFieldNames.orientation: orientation0,
+        ModelJsScreenFieldNames.colorDepth: colorDepth0,
+        ModelJsScreenFieldNames.pixelDepth: pixelDepth0,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
@@ -253,51 +247,11 @@ class ModelJsScreen extends Model {
   //
 
   @override
-  T empty<T extends Model>() {
-    return ModelJsScreen.b() as T;
-  }
-
-  //
-  //
-  //
-
-  @override
-  T copy<T extends Model>() {
-    return (ModelJsScreen.b()..updateWith(this)) as T;
-  }
-
-  //
-  //
-  //
-
-  @override
-  void updateWithJson(
-    Map<String, dynamic>? otherData,
-  ) {
-    if (otherData != null && otherData.isNotEmpty) {
-      final other = ModelJsScreen.fromJson(otherData);
-      if (other.availHeight != null) {
-        this.availHeight = other.availHeight!;
-      }
-      if (other.availWidth != null) {
-        this.availWidth = other.availWidth!;
-      }
-      if (other.width != null) {
-        this.width = other.width!;
-      }
-      if (other.height != null) {
-        this.height = other.height!;
-      }
-      if (other.orientation != null) {
-        this.orientation = other.orientation!;
-      }
-      if (other.colorDepth != null) {
-        this.colorDepth = other.colorDepth!;
-      }
-      if (other.pixelDepth != null) {
-        this.pixelDepth = other.pixelDepth!;
-      }
-    }
+  ModelJsScreen copyWith(BaseModel? other) {
+    final a = this.toJson();
+    final b = other?.toJson();
+    final c = {...a, ...?b};
+    return ModelJsScreen.fromJson(c);
   }
 
   //
@@ -306,57 +260,44 @@ class ModelJsScreen extends Model {
 
   // availHeight.
   int? get availHeightField => this.availHeight;
-  set availHeightField(int? v) => this.availHeight = v;
-  @protected
-  dynamic get $availHeight => this.availHeight;
-  @protected
-  set $availHeight(v) => this.availHeight = letInt(v);
 
   // availWidth.
   int? get availWidthField => this.availWidth;
-  set availWidthField(int? v) => this.availWidth = v;
-  @protected
-  dynamic get $availWidth => this.availWidth;
-  @protected
-  set $availWidth(v) => this.availWidth = letInt(v);
 
   // width.
   int? get widthField => this.width;
-  set widthField(int? v) => this.width = v;
-  @protected
-  dynamic get $width => this.width;
-  @protected
-  set $width(v) => this.width = letInt(v);
 
   // height.
   int? get heightField => this.height;
-  set heightField(int? v) => this.height = v;
-  @protected
-  dynamic get $height => this.height;
-  @protected
-  set $height(v) => this.height = letInt(v);
 
   // orientation.
   String? get orientationField => this.orientation;
-  set orientationField(String? v) => this.orientation = v;
-  @protected
-  dynamic get $orientation => this.orientation?.toString().trim().nullIfEmpty;
-  @protected
-  set $orientation(v) => this.orientation = v?.toString().trim().nullIfEmpty;
 
   // colorDepth.
   int? get colorDepthField => this.colorDepth;
-  set colorDepthField(int? v) => this.colorDepth = v;
-  @protected
-  dynamic get $colorDepth => this.colorDepth;
-  @protected
-  set $colorDepth(v) => this.colorDepth = letInt(v);
 
   // pixelDepth.
   int? get pixelDepthField => this.pixelDepth;
-  set pixelDepthField(int? v) => this.pixelDepth = v;
-  @protected
-  dynamic get $pixelDepth => this.pixelDepth;
-  @protected
-  set $pixelDepth(v) => this.pixelDepth = letInt(v);
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+final class ModelJsScreenFieldNames {
+  //
+  //
+  //
+
+  static const availHeight = 'availHeight';
+  static const availWidth = 'availWidth';
+  static const width = 'width';
+  static const height = 'height';
+  static const orientation = 'orientation';
+  static const colorDepth = 'colorDepth';
+  static const pixelDepth = 'pixelDepth';
+
+  //
+  //
+  //
+
+  const ModelJsScreenFieldNames._();
 }

@@ -16,9 +16,11 @@ part '_model_js_navigator.g.dart';
 typedef JsNavigator = ModelJsNavigator;
 
 @GenerateModel(
+  shouldInherit: true,
   fields: {
     ('user_agent?', String),
   },
 )
-// ignore: unused_element
-abstract class _ModelJsNavigator {}
+abstract class _ModelJsNavigator extends Model {
+  const _ModelJsNavigator();
+}
