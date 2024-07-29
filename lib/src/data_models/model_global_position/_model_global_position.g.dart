@@ -8,11 +8,11 @@
 //.title~
 
 // ignore_for_file: annotate_overrides
-// ignore_for_file: empty_constructor_bodies
 // ignore_for_file: invalid_null_aware_operator
 // ignore_for_file: overridden_fields
 // ignore_for_file: unnecessary_non_null_assertion
 // ignore_for_file: unnecessary_null_comparison
+// ignore_for_file: unnecessary_question_mark
 // ignore_for_file: unnecessary_this
 
 part of 'model_global_position.dart';
@@ -136,11 +136,11 @@ class ModelGlobalPosition extends _ModelGlobalPosition {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final altitude0 = otherData?[ModelGlobalPositionFieldNames.altitude];
+      final altitude0 = otherData?['altitude'];
       final altitude = letDouble(altitude0);
-      final latitude0 = otherData?[ModelGlobalPositionFieldNames.latitude];
+      final latitude0 = otherData?['latitude'];
       final latitude = letDouble(latitude0);
-      final longitude0 = otherData?[ModelGlobalPositionFieldNames.longitude];
+      final longitude0 = otherData?['longitude'];
       final longitude = letDouble(longitude0);
       return ModelGlobalPosition(
         altitude: altitude,
@@ -190,11 +190,17 @@ class ModelGlobalPosition extends _ModelGlobalPosition {
       final altitude0 = this.altitude;
       final latitude0 = this.latitude;
       final longitude0 = this.longitude;
-      final withNulls = <String, dynamic>{
-        ModelGlobalPositionFieldNames.altitude: altitude0,
-        ModelGlobalPositionFieldNames.latitude: latitude0,
-        ModelGlobalPositionFieldNames.longitude: longitude0,
-      }.mapWithDefault(defaultValue);
+      final withNulls = mergeMapsDeep([
+        {
+          'altitude': altitude0,
+        },
+        {
+          'latitude': latitude0,
+        },
+        {
+          'longitude': longitude0,
+        },
+      ]).mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
       assert(false, 'ModelGlobalPosition.toJson: $e');

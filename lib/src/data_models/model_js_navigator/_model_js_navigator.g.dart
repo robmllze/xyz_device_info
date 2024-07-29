@@ -8,11 +8,11 @@
 //.title~
 
 // ignore_for_file: annotate_overrides
-// ignore_for_file: empty_constructor_bodies
 // ignore_for_file: invalid_null_aware_operator
 // ignore_for_file: overridden_fields
 // ignore_for_file: unnecessary_non_null_assertion
 // ignore_for_file: unnecessary_null_comparison
+// ignore_for_file: unnecessary_question_mark
 // ignore_for_file: unnecessary_this
 
 part of 'model_js_navigator.dart';
@@ -126,7 +126,7 @@ class ModelJsNavigator extends _ModelJsNavigator {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final userAgent0 = otherData?[ModelJsNavigatorFieldNames.userAgent];
+      final userAgent0 = otherData?['userAgent'];
       final userAgent = userAgent0?.toString().trim().nullIfEmpty;
       return ModelJsNavigator(
         userAgent: userAgent,
@@ -172,9 +172,11 @@ class ModelJsNavigator extends _ModelJsNavigator {
   }) {
     try {
       final userAgent0 = this.userAgent?.trim().nullIfEmpty;
-      final withNulls = <String, dynamic>{
-        ModelJsNavigatorFieldNames.userAgent: userAgent0,
-      }.mapWithDefault(defaultValue);
+      final withNulls = mergeMapsDeep([
+        {
+          'userAgent': userAgent0,
+        },
+      ]).mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
       assert(false, 'ModelJsNavigator.toJson: $e');

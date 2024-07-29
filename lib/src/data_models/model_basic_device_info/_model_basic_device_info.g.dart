@@ -8,11 +8,11 @@
 //.title~
 
 // ignore_for_file: annotate_overrides
-// ignore_for_file: empty_constructor_bodies
 // ignore_for_file: invalid_null_aware_operator
 // ignore_for_file: overridden_fields
 // ignore_for_file: unnecessary_non_null_assertion
 // ignore_for_file: unnecessary_null_comparison
+// ignore_for_file: unnecessary_question_mark
 // ignore_for_file: unnecessary_this
 
 part of 'model_basic_device_info.dart';
@@ -136,13 +136,11 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final operatingSystem0 =
-          otherData?[ModelBasicDeviceInfoFieldNames.operatingSystem];
+      final operatingSystem0 = otherData?['operatingSystem'];
       final operatingSystem = operatingSystem0?.toString().trim().nullIfEmpty;
-      final userAgent0 = otherData?[ModelBasicDeviceInfoFieldNames.userAgent];
+      final userAgent0 = otherData?['userAgent'];
       final userAgent = userAgent0?.toString().trim().nullIfEmpty;
-      final isInstalled0 =
-          otherData?[ModelBasicDeviceInfoFieldNames.isInstalled];
+      final isInstalled0 = otherData?['isInstalled'];
       final isInstalled = letBool(isInstalled0);
       return ModelBasicDeviceInfo(
         operatingSystem: operatingSystem,
@@ -192,11 +190,17 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
       final operatingSystem0 = this.operatingSystem?.trim().nullIfEmpty;
       final userAgent0 = this.userAgent?.trim().nullIfEmpty;
       final isInstalled0 = this.isInstalled;
-      final withNulls = <String, dynamic>{
-        ModelBasicDeviceInfoFieldNames.operatingSystem: operatingSystem0,
-        ModelBasicDeviceInfoFieldNames.userAgent: userAgent0,
-        ModelBasicDeviceInfoFieldNames.isInstalled: isInstalled0,
-      }.mapWithDefault(defaultValue);
+      final withNulls = mergeMapsDeep([
+        {
+          'operatingSystem': operatingSystem0,
+        },
+        {
+          'userAgent': userAgent0,
+        },
+        {
+          'isInstalled': isInstalled0,
+        },
+      ]).mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
       assert(false, 'ModelBasicDeviceInfo.toJson: $e');

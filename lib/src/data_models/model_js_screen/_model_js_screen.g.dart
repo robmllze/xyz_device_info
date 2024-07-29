@@ -8,11 +8,11 @@
 //.title~
 
 // ignore_for_file: annotate_overrides
-// ignore_for_file: empty_constructor_bodies
 // ignore_for_file: invalid_null_aware_operator
 // ignore_for_file: overridden_fields
 // ignore_for_file: unnecessary_non_null_assertion
 // ignore_for_file: unnecessary_null_comparison
+// ignore_for_file: unnecessary_question_mark
 // ignore_for_file: unnecessary_this
 
 part of 'model_js_screen.dart';
@@ -156,19 +156,19 @@ class ModelJsScreen extends _ModelJsScreen {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final availHeight0 = otherData?[ModelJsScreenFieldNames.availHeight];
+      final availHeight0 = otherData?['availHeight'];
       final availHeight = letInt(availHeight0);
-      final availWidth0 = otherData?[ModelJsScreenFieldNames.availWidth];
+      final availWidth0 = otherData?['availWidth'];
       final availWidth = letInt(availWidth0);
-      final width0 = otherData?[ModelJsScreenFieldNames.width];
+      final width0 = otherData?['width'];
       final width = letInt(width0);
-      final height0 = otherData?[ModelJsScreenFieldNames.height];
+      final height0 = otherData?['height'];
       final height = letInt(height0);
-      final orientation0 = otherData?[ModelJsScreenFieldNames.orientation];
+      final orientation0 = otherData?['orientation'];
       final orientation = orientation0?.toString().trim().nullIfEmpty;
-      final colorDepth0 = otherData?[ModelJsScreenFieldNames.colorDepth];
+      final colorDepth0 = otherData?['colorDepth'];
       final colorDepth = letInt(colorDepth0);
-      final pixelDepth0 = otherData?[ModelJsScreenFieldNames.pixelDepth];
+      final pixelDepth0 = otherData?['pixelDepth'];
       final pixelDepth = letInt(pixelDepth0);
       return ModelJsScreen(
         availHeight: availHeight,
@@ -226,15 +226,29 @@ class ModelJsScreen extends _ModelJsScreen {
       final orientation0 = this.orientation?.trim().nullIfEmpty;
       final colorDepth0 = this.colorDepth;
       final pixelDepth0 = this.pixelDepth;
-      final withNulls = <String, dynamic>{
-        ModelJsScreenFieldNames.availHeight: availHeight0,
-        ModelJsScreenFieldNames.availWidth: availWidth0,
-        ModelJsScreenFieldNames.width: width0,
-        ModelJsScreenFieldNames.height: height0,
-        ModelJsScreenFieldNames.orientation: orientation0,
-        ModelJsScreenFieldNames.colorDepth: colorDepth0,
-        ModelJsScreenFieldNames.pixelDepth: pixelDepth0,
-      }.mapWithDefault(defaultValue);
+      final withNulls = mergeMapsDeep([
+        {
+          'availHeight': availHeight0,
+        },
+        {
+          'availWidth': availWidth0,
+        },
+        {
+          'width': width0,
+        },
+        {
+          'height': height0,
+        },
+        {
+          'orientation': orientation0,
+        },
+        {
+          'colorDepth': colorDepth0,
+        },
+        {
+          'pixelDepth': pixelDepth0,
+        },
+      ]).mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
       assert(false, 'ModelJsScreen.toJson: $e');

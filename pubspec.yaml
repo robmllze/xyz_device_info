@@ -11,8 +11,7 @@
 name: xyz_device_info
 description: This package allows you to get some basic device info and works with WebAssembly.
 repository: https://github.com/robmllze/xyz_device_info
-version: 0.6.0
-publish_to: none
+version: 0.7.0
 
 ## -----------------------------------------------------------------------------
 
@@ -22,9 +21,9 @@ environment:
 ## -----------------------------------------------------------------------------
 
 dependencies:
-  # xyz_gen_annotations: ">=0.48.3 <1.0.0"
-  xyz_gen_annotations:
-    path: ../xyz_gen/xyz_gen_annotations
+  xyz_gen_annotations: ">=0.50.0 <1.0.0"
+  # xyz_gen_annotations:
+  #   path: ../xyz_gen/xyz_gen_annotations
 
 ## -----------------------------------------------------------------------------
 
