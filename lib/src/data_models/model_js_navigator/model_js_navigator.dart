@@ -15,7 +15,7 @@ part '_model_js_navigator.g.dart';
 
 typedef JsNavigator = ModelJsNavigator;
 
-@GenerateModel(
+@GenerateDartModel(
   shouldInherit: true,
   fields: {
     ('user_agent?', String),

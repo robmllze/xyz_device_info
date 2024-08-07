@@ -13,7 +13,7 @@ part '_model_global_position.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-@GenerateModel(
+@GenerateDartModel(
   shouldInherit: true,
   fields: {
     ('altitude?', double),

@@ -15,7 +15,7 @@ part '_model_js_screen.g.dart';
 
 typedef JsScreen = ModelJsScreen;
 
-@GenerateModel(
+@GenerateDartModel(
   shouldInherit: true,
   fields: {
     ('avail_height?', int),

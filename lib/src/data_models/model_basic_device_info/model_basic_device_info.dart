@@ -15,7 +15,7 @@ part '_model_basic_device_info.g.dart';
 
 typedef BasicDeviceInfo = ModelBasicDeviceInfo;
 
-@GenerateModel(
+@GenerateDartModel(
   shouldInherit: true,
   fields: {
     ('operating_system?', String),
