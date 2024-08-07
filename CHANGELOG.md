@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.8.0]
+
+- Released @ 2024-08-07 10:01:52.167770Z
+- chore: Update dependencies and data models
+
 ## [0.7.0]
 
 - Released @ 2024-07-29 11:52:27.927847Z
