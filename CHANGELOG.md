@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.9.0]
+
+- Released @ 2024-08-15 11:47:28.154494Z
+- chore: Update dependencies
+
 ## [0.8.0]
 
 - Released @ 2024-08-07 10:01:52.167770Z
