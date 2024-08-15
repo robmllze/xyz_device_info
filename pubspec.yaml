@@ -11,17 +11,17 @@
 name: xyz_device_info
 description: This package allows you to get some basic device info and works with WebAssembly.
 repository: https://github.com/robmllze/xyz_device_info
-version: 0.8.0
+version: 0.9.0
 
 ## -----------------------------------------------------------------------------
 
 environment:
-  sdk: ">= 3.3.1 < 4.0.0"
+  sdk: ">= 3.5.0 <4.0.0"
 
 ## -----------------------------------------------------------------------------
 
 dependencies:
-  df_generate_dart_models_core: ^0.2.1
+  df_generate_dart_models_core: ^0.3.0
 
 ## -----------------------------------------------------------------------------
 
