@@ -132,7 +132,8 @@ class ModelJsScreen extends _ModelJsScreen {
     try {
       if (source!.isNotEmpty) {
         final decoded = jsonDecode(source);
-        return ModelJsScreen.fromJson(decoded);
+        final data = letMapOrNull<String, dynamic>(decoded);
+        return ModelJsScreen.fromJson(data);
       } else {
         return const ModelJsScreen.c2();
       }
@@ -156,14 +157,14 @@ class ModelJsScreen extends _ModelJsScreen {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final availHeight = letInt(otherData?['avail_height']);
-      final availWidth = letInt(otherData?['avail_width']);
-      final width = letInt(otherData?['width']);
-      final height = letInt(otherData?['height']);
+      final availHeight = letAs<int>(otherData?['availHeight']);
+      final availWidth = letAs<int>(otherData?['availWidth']);
+      final width = letAs<int>(otherData?['width']);
+      final height = letAs<int>(otherData?['height']);
       final orientation =
           otherData?['orientation']?.toString().trim().nullIfEmpty;
-      final colorDepth = letInt(otherData?['color_depth']);
-      final pixelDepth = letInt(otherData?['pixel_depth']);
+      final colorDepth = letAs<int>(otherData?['colorDepth']);
+      final pixelDepth = letAs<int>(otherData?['pixelDepth']);
       return ModelJsScreen(
         availHeight: availHeight,
         availWidth: availWidth,

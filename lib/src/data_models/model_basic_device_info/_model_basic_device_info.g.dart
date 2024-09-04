@@ -112,7 +112,8 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
     try {
       if (source!.isNotEmpty) {
         final decoded = jsonDecode(source);
-        return ModelBasicDeviceInfo.fromJson(decoded);
+        final data = letMapOrNull<String, dynamic>(decoded);
+        return ModelBasicDeviceInfo.fromJson(data);
       } else {
         return const ModelBasicDeviceInfo.c2();
       }
@@ -137,9 +138,9 @@ class ModelBasicDeviceInfo extends _ModelBasicDeviceInfo {
   ) {
     try {
       final operatingSystem =
-          otherData?['operating_system']?.toString().trim().nullIfEmpty;
-      final userAgent = otherData?['user_agent']?.toString().trim().nullIfEmpty;
-      final isInstalled = letBool(otherData?['is_installed']);
+          otherData?['operatingSystem']?.toString().trim().nullIfEmpty;
+      final userAgent = otherData?['userAgent']?.toString().trim().nullIfEmpty;
+      final isInstalled = letAs<bool>(otherData?['isInstalled']);
       return ModelBasicDeviceInfo(
         operatingSystem: operatingSystem,
         userAgent: userAgent,

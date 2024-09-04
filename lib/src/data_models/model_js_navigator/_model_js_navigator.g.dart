@@ -102,7 +102,8 @@ class ModelJsNavigator extends _ModelJsNavigator {
     try {
       if (source!.isNotEmpty) {
         final decoded = jsonDecode(source);
-        return ModelJsNavigator.fromJson(decoded);
+        final data = letMapOrNull<String, dynamic>(decoded);
+        return ModelJsNavigator.fromJson(data);
       } else {
         return const ModelJsNavigator.c2();
       }
@@ -126,7 +127,7 @@ class ModelJsNavigator extends _ModelJsNavigator {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final userAgent = otherData?['user_agent']?.toString().trim().nullIfEmpty;
+      final userAgent = otherData?['userAgent']?.toString().trim().nullIfEmpty;
       return ModelJsNavigator(
         userAgent: userAgent,
       );

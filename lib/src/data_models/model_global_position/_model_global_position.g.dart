@@ -112,7 +112,8 @@ class ModelGlobalPosition extends _ModelGlobalPosition {
     try {
       if (source!.isNotEmpty) {
         final decoded = jsonDecode(source);
-        return ModelGlobalPosition.fromJson(decoded);
+        final data = letMapOrNull<String, dynamic>(decoded);
+        return ModelGlobalPosition.fromJson(data);
       } else {
         return const ModelGlobalPosition.c2();
       }
@@ -136,9 +137,9 @@ class ModelGlobalPosition extends _ModelGlobalPosition {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      final altitude = letDouble(otherData?['altitude']);
-      final latitude = letDouble(otherData?['latitude']);
-      final longitude = letDouble(otherData?['longitude']);
+      final altitude = letAs<double>(otherData?['altitude']);
+      final latitude = letAs<double>(otherData?['latitude']);
+      final longitude = letAs<double>(otherData?['longitude']);
       return ModelGlobalPosition(
         altitude: altitude,
         latitude: latitude,
