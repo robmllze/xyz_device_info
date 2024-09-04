@@ -2,8 +2,9 @@
 
 ## [0.9.0]
 
-- Released @ 2024-08-15 11:47:28.154494Z
+- Released @ 2024-09-04 06:37:42.099049Z
 - chore: Update dependencies
+- chore: Update dependencies and data models
 
 ## [0.8.0]
 
